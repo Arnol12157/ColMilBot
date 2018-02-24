@@ -1,0 +1,94 @@
+<section class="wrapper chat-page">
+  <header>
+    <h3 class="primary-color">Chat</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <mat-sidenav-container>
+          <mat-sidenav #sidenav mode="side" [opened]="sideNavOpen">
+            <mat-toolbar color="primary">
+              <mat-select #groupSelect [ngModel]="'All'" (change)="filter(search.value, $event.value)">
+                <mat-option [value]="'All'">All</mat-option>
+                <mat-option [value]="'Favourite'">Favourite</mat-option>
+                <mat-option [value]="'Work'">Work</mat-option>
+              </mat-select>
+              <td-search-box #search [alwaysVisible]="false" fxFlex
+                             (searchDebounce)="filter($event, groupSelect.selected.value)"></td-search-box>
+              <button mat-icon-button [matMenuTriggerFor]="contactMenu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu x-position="before" y-position="below" #contactMenu>
+                <button mat-menu-item>New contact</button>
+                <button mat-menu-item>New group</button>
+                <button mat-menu-item>Settings</button>
+              </mat-menu>
+            </mat-toolbar>
+            <perfect-scrollbar class="perfect-scrollbar">
+              <mat-nav-list>
+                <div class="group" *ngFor="let group of getGroups()">
+                  <a mat-list-item *ngFor="let contact of filteredData[group].contacts; let i = index"
+                     (click)="selectedContact = contact; loadMessages()"
+                     [class.primary-light-background-color]="selectedContact === contact">
+                    <div class="group-letter accent-color">
+                      <mat-icon *ngIf="i == 0 && group == 'Favourite'" color="accent">star</mat-icon>
+                      <h5 *ngIf="i == 0 && group != 'Favourite'">{{group}}</h5>
+                    </div>
+                    <img mat-list-avatar [src]="contact.imageUrl" alt="Image of {{contact.name}}">
+                    <span matLine>{{ contact.name }}</span>
+                    <span matLine class="secondary-text-color">Lorem ipsum dolor sit.</span>
+                  </a>
+                </div>
+              </mat-nav-list>
+            </perfect-scrollbar>
+            <button mat-fab color="primary" class="add-btn">
+              <mat-icon>add</mat-icon>
+            </button>
+          </mat-sidenav>
+
+          <mat-toolbar class="chat-toolbar" color="primary">
+            <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            <span>
+              <div>{{selectedContact?.name}}</div>
+              <div class="mat-body-1">Online</div>
+            </span>
+            <span fxFlex></span>
+            <button mat-icon-button [matMenuTriggerFor]="chatMenu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu x-position="before" y-position="below" #chatMenu>
+              <button mat-menu-item>View contact</button>
+              <button mat-menu-item>Search</button>
+              <button mat-menu-item>Clear chat</button>
+            </mat-menu>
+          </mat-toolbar>
+          <div class="chat" #chat>
+            <div *ngFor="let groupByDay of messages">
+              <div class="text-center secondary-text-color">{{groupByDay.date}}</div>
+              <div *ngFor="let message of groupByDay.messages" [class.self]="!message.author" fxLayout="row"
+                   [fxLayoutAlign]="message.author ? 'start' : 'end'">
+                <div class="push-right-sm">
+                  <img *ngIf="message.author" src="{{message.author?.imageUrl}}">
+                </div>
+                <div class="message">
+                  <div>{{message.text}}</div>
+                  <div class="text-right text-md" [class.secondary-text-color]="message.author">{{message.time}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-area">
+            <mat-input-container fxFlex>
+              <textarea #messageInput matInput placeholder="Message..." maxRows="2"></textarea>
+            </mat-input-container>
+            <button mat-mini-fab color="primary" (click)="sendMessage(messageInput.value); messageInput.value = null">
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+        </mat-sidenav-container>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

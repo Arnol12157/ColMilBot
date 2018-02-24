@@ -1,0 +1,77 @@
+<section>
+  <header class="text-center">
+    <h5>Products</h5>
+    <div class="mat-subhead">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium blanditiis dolorum ducimus placeat possimus
+      provident qui reprehenderit tempore totam voluptatibus.
+    </div>
+  </header>
+  <article fxLayout="column" fxLayout.gt-md="row">
+    <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+      <mat-card class="main-card">
+        <mat-card-content>
+          <div class="mat-title accent-color">{{mainProduct.promotion}}</div>
+          <a routerLink="/main/product" class="main-product"
+             [style.background-image]="'url(' + mainProduct.image + ')'">
+          </a>
+          <div class="text-center">
+            <button mat-raised-button color="primary" class="push-right-sm sm push-bottom-sm">
+              <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-raised-button color="primary">ADD TO CART
+              <mat-icon>add_shopping_cart</mat-icon>
+            </button>
+          </div>
+          <div fxLayout="row" class="mat-headline push-top-lg">
+            <div fxFlex="50">{{mainProduct.name}}</div>
+            <div fxFlex="50" class="primary-color text-right">$ {{mainProduct.price}}</div>
+          </div>
+          <div fxLayout="row" class="secondary-text-color">
+            <div fxFlex="50">{{mainProduct.description}}</div>
+            <div fxFlex="50" class="text-right"><s>$ {{mainProduct.oldPrice}}</s></div>
+          </div>
+          <div class="push-top-sm">
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-md="50" fxLayout="column" fxLayout.gt-sm="row" fxLayoutWrap>
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="50" *ngFor="let product of products">
+        <mat-card>
+          <mat-card-content>
+            <div class="mat-title accent-color">{{product.promotion}}</div>
+            <a class="product" routerLink="/main/product"
+               [style.background-image]="'url(' + product.image + ')'"></a>
+            <div class="text-center push-top-xs">
+              <button mat-raised-button color="primary" class="push-right-sm push-bottom-sm">
+                <mat-icon>favorite</mat-icon>
+              </button>
+              <button mat-raised-button color="primary">ADD TO CART
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+            <div fxLayout="row" class="mat-headline push-top-sm">
+              <div fxFlex="50">{{product.name}}</div>
+              <div fxFlex="50" class="primary-color text-right">$ {{product.price}}</div>
+            </div>
+            <div class="secondary-text-color">
+              {{product.description}}
+            </div>
+            <div class="push-top-sm">
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </article>
+</section>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MOMO - Admin Template Documentation</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">MOMO Documentation</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+        <li class="hidden">
+          <a class="page-scroll" href="#page-top"></a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#basics">Basics</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#deployment">Deployment</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#frameworks">Material Design</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#styles">Styles and Themes</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#credits">Credits</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#support">Support</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<section class="get-start-section" id="get-start">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Get started</h1>
+        <p>
+          First, you need to install <a href="https://nodejs.org/en/">node.js</a>.
+          Verify that you are running at least node 6.9.x and npm 3.x.x by running in a terminal/console window:
+        </p>
+        <pre>node -v</pre>
+        <pre>npm -v</pre>
+        <p>
+          Older versions could produce errors, but newer versions are fine.
+        </p>
+        <p>Install project dependencies:</p>
+        <pre>npm install</pre>
+        <p>After this project is ready for development.</p>
+        <p>Build project:</p>
+        <pre>npm run build</pre>
+        <p>Serve project:</p>
+        <pre>npm run serve</pre>
+        <p>Project is using <a href="https://github.com/angular/angular-cli">Angular CLI</a>. You can install it for
+          additional features.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="basics-section" id="basics">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Basics</h1>
+        <p>MOMO admin template is based on Angular framework. It uses TypeScript as programming language.</p>
+        <p>It is also desirable to have some basic knowledge of JavaScript, HTML, CSS, SASS</p>
+        <p>If you need to learn more about this technologies, links below can help you:</p>
+        <ul>
+          <li><a href="https://www.w3schools.com/html/">HTML</a></li>
+          <li><a href="https://www.w3schools.com/css/">CSS</a></li>
+          <li><a href="http://sass-lang.com/">SASS</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+          <li><a href="https://www.typescriptlang.org/docs/home.html">TypeScript</a></li>
+          <li><a href="https://angular.io/docs/ts/latest/quickstart.html">Angular</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="structure-section" id="deployment">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Deployment</h1>
+        <p>To deploy project to server, you need to build it:</p>
+        <pre>npm run build</pre>
+        <p>After that copy content of <strong>dist</strong> folder to your server.</p>
+        <p>Your server should be configured properly to handle Angular routing functionality.</p>
+        <p>For example, Apache server: add a rewrite rule to the .htaccess file:</p>
+        <pre>
+RewriteEngine On
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+        </pre>
+        <p>You can find more at <a href="https://angular.io/docs/ts/latest/guide/deployment.html">Angular
+          documentation</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="frameworks-section" id="frameworks">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Material Design</h1>
+        <p>Material Design is a unified system that combines theory, resources, and tools for crafting digital
+          experiences.</p>
+        <p>
+          We created MOMO admin template guided by Material Design principles.
+          Material Design has awesome <a href="https://material.io/guidelines/material-design/introduction.html">specification</a>.
+        </p>
+        <p>
+          Community proposes many implementations of Material Design.
+        </p>
+        <p>
+          We are using in our project <a href="https://github.com/angular/material2">Material Design for Angular</a>.
+          This framework is built by Angular team.
+          <a href="https://material.angular.io/">Show case</a> with examples.
+        </p>
+        <p>
+          Also we are using <a href="https://github.com/Teradata/covalent">Covalent</a>. Covalent is UI platform based
+          on Angular Material.
+          <a href="https://teradata.github.io/covalent/#/">Show case</a> with examples.
+        </p>
+        <p>
+          Angular Material and Covalent are in active development and have many stars at GitHub.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="styles-section" id="styles">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Styles and themes</h1>
+        <p>
+          We are using SASS for generating styles for project ang Angular emulated view encapsulation.
+          This mode emulates the behavior of shadow DOM by preprocessing (and renaming) the CSS code to effectively scope the CSS to the component's view.
+          You can find more <a href="https://angular.io/guide/component-styles">here</a>.
+        </p>
+        <p>
+          Angular Material and Covalent support themes by default. Angular Material <a href="https://material.angular.io/guide/theming">guide</a> and
+          Covalent <a href="https://teradata.github.io/covalent/#/docs/theme">guide</a> have good description how create your own theme.
+        </p>
+        <p>
+          Themes initialization code is located at <samp>src/styles/theme/theme.scss</samp>.
+          If you need to set custom colors, look at <samp>src/styles/_variables.scss</samp>
+        </p>
+        <p>
+          Covalent has many helpful styles, find description <a href="https://teradata.github.io/covalent/#/style-guide/utility-styles">here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=credits-section" id="credits">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Credits</h1>
+        <p>We used many open source project in MOMO admin template. Thanks community for such awesome projects. You can find links below:</p>
+        <ul>
+          <li><a href="https://github.com/angular/angular">Angular</a></li>
+          <li>
+            <a href="https://github.com/angular/material2">Angular Material</a>
+            <ul>
+              <li><a href="https://material.angular.io/components/component/button">Buttons</a></li>
+              <li><a href="https://material.angular.io/components/component/button-toggle">Button toggle</a></li>
+              <li><a href="https://material.angular.io/components/component/dialog">Dialog</a></li>
+              <li><a href="https://material.angular.io/components/component/tooltip">Tooltip</a></li>
+              <li><a href="https://material.angular.io/components/component/progress-bar">Progress bar</a></li>
+              <li><a href="https://material.angular.io/components/component/progress-spinner">Progress Spinner</a></li>
+              <li><a href="https://material.angular.io/components/component/snack-bar">Snackbar</a></li>
+              <li><a href="https://material.angular.io/components/component/chips">Chips</a></li>
+              <li><a href="https://material.angular.io/components/component/card">Cards</a></li>
+              <li><a href="https://material.angular.io/components/component/list">List</a></li>
+              <li><a href="https://material.angular.io/components/component/menu">Menu</a></li>
+              <li><a href="https://material.angular.io/components/component/tabs">Tabs</a></li>
+              <li><a href="https://material.angular.io/components/component/sidenav">Sidenav</a></li>
+              <li><a href="https://material.angular.io/components/component/toolbar">Toolbar</a></li>
+              <li><a href="https://material.angular.io/components/component/grid-list">Grid list</a></li>
+              <li><a href="https://material.angular.io/components/component/input">Input</a></li>
+              <li><a href="https://material.angular.io/components/component/radio">Radio button</a></li>
+              <li><a href="https://material.angular.io/components/component/select">Select</a></li>
+              <li><a href="https://material.angular.io/components/component/checkbox">Checkbox</a></li>
+              <li><a href="https://material.angular.io/components/component/autocomplete">Autocomplete</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/angular/flex-layout">Flex layout</a></li>
+          <li><a href="https://github.com/SebastianM/angular-google-maps">AGM - Angular Google Maps</a></li>
+          <li>
+            <a href="https://teradata.github.io/covalent/#/">Covalent</a>
+            <ul>
+              <li><a href="https://teradata.github.io/covalent/#/components/data-table">Table</a></li>
+              <li><a href="https://teradata.github.io/covalent/#/components/file-input">File Input</a></li>
+              <li><a href="https://teradata.github.io/covalent/#/components/file-upload">File Upload Button</a></li>
+              <li><a href="https://teradata.github.io/covalent/#/components/steps">Stepper</a></li>
+            </ul>
+          </li>
+          <li><a href="https://github.com/500tech/angular-tree-component">Angular tree component</a></li>
+          <li><a href="https://github.com/xieziyu/angular2-echarts">Angular directive for echarts</a></li>
+          <li><a href="https://github.com/ecomfe/echarts">Echarts</a></li>
+          <li><a href="http://fontawesome.io/">Font Awesome</a></li>
+          <li><a href="https://github.com/valor-software/ng2-dragula">Dragula - drag and drop</a></li>
+          <li><a href="https://github.com/yuyang041060120/ng2-validation">ng2-validation - Angular custom validation</a></li>
+          <li><a href="https://github.com/KillerCodeMonkey/ngx-quill">ngx-quill - Angular component for rich text editor Quill</a></li>
+          <li><a href="https://github.com/necolas/normalize.css">normalize.css</a></li>
+          <li><a href="https://github.com/Reactive-Extensions/RxJS">RxJs</a></li>
+          <li><a href="https://github.com/Microsoft/TypeScript">Typescript</a></li>
+          <li><a href="https://github.com/zefoy/ngx-perfect-scrollbar">ngx-perfect-scrollbar - scroll bar</a></li>
+          <li><a href="https://github.com/ngx-translate/core">ngx-translate - multi language support</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=support-section" id="support">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Support</h1>
+        <p>We would like say thank you for purchasing our theme.</p>
+        <p>If you have any issues, you can contact us at <a href="mailto:px.garden@gmail.com ">px.garden@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-fluid">
+  <p>PixelGarden © All Rights Reserved</p>
+</div>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+<!-- Scrolling Nav JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

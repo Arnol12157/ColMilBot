@@ -1,0 +1,14 @@
+<section>
+  <header>
+    <h3 class="primary-color">Google Maps</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <agm-map [latitude]="lat" [longitude]="lng" class="map">
+          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

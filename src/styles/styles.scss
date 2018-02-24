@@ -1,0 +1,35 @@
+@import '~normalize.css/normalize.css';
+@import "~dragula/dist/dragula.css";
+@import "~quill/dist/quill.snow.css";
+@import "~angular-tree-component/dist/angular-tree-component.css";
+@import 'typography';
+@import 'theme/theme';
+@import 'hovers/hovers';
+@import 'cards';
+
+/************************************** COMMON STYLES **************************************/
+html, body, mat-sidenav-container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+//make pages display block for route animation
+router-outlet ~ * {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/************************************** SIDE PANEL STYLES **************************************/
+.mat-sidenav {
+  width: 300px;
+  @include mat-elevation(16);
+}
+.perfect-scrollbar {
+  height: 100%;
+}
+/************************************** TOOLBAR STYLES **************************************/
+.mat-toolbar {
+  @include mat-elevation(4);
+}

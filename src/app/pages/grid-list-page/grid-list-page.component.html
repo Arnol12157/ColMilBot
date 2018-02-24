@@ -1,0 +1,63 @@
+<section>
+  <header>
+    <h3 class="primary-color">Grid list</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Constant height</mat-card-title>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px" gutterSize="10px">
+          <mat-grid-tile class="primary-light-background-color mat-whiteframe-6dp"
+            *ngFor="let tile of tiles1"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows">
+            {{tile.text}}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Ratio height</mat-card-title>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="4:3" gutterSize="10px">
+          <mat-grid-tile class="primary-light-background-color mat-whiteframe-6dp"
+                        *ngFor="let tile of tiles2"
+                        [colspan]="tile.cols"
+                        [rowspan]="tile.rows">
+            {{tile.text}}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Custom gutter</mat-card-title>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="100px" gutterSize="30px">
+
+          <mat-grid-tile class="primary-light-background-color mat-whiteframe-6dp"
+                        *ngFor="let tile of tiles3"
+                        [colspan]="tile.cols"
+                        [rowspan]="tile.rows">
+            {{tile.text}}
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Header and footer</mat-card-title>
+      <mat-card-content>
+        <mat-grid-list cols="4" rowHeight="200px" gutterSize="30px">
+
+          <mat-grid-tile class="primary-light-background-color mat-whiteframe-6dp"
+                        *ngFor="let tile of tiles4"
+                        [colspan]="tile.cols"
+                        [rowspan]="tile.rows">
+            <mat-grid-tile-header>Header</mat-grid-tile-header>
+            {{tile.text}}
+            <mat-grid-tile-footer>Footer</mat-grid-tile-footer>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

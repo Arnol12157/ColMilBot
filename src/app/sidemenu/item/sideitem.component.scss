@@ -1,0 +1,73 @@
+@import "../../../styles/mixins";
+@import "~@angular/material/theming";
+
+$item-height: 48px;
+li {
+  .item /deep/ {
+    position: relative;
+    height: $item-height;
+    a {
+      padding-left: 16px;
+      height: 100%;
+      width: 100%;
+      line-height: $item-height;
+      text-align: left;
+      @include transition(color 0.3s ease);
+      &.active {
+        &.no-route {
+          color: inherit;
+        }
+      }
+    }
+
+    .icon {
+      width: 40px;
+      height: 100%;
+      float: left;
+      .mat-icon {
+        line-height: $item-height;
+      }
+    }
+    .text {
+      display: inline-block;
+      width: 160px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .badge {
+      display: inline-block;
+      min-width: 10px;
+      text-align: center;
+      line-height: 20px;
+    }
+    .dropdown {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      @include transform(translateY(-50%));
+      @include transition(transform 0.25s ease);
+      cursor: pointer;
+    }
+  }
+  &.open {
+    > .item {
+      .dropdown {
+        @include transform(translateY(-50%) rotate(90deg));
+      }
+    }
+  }
+  .children {
+    position: relative;
+    overflow: hidden;
+    &:before {
+      position: absolute;
+      top: 0;
+      right: -15px;
+      bottom: 0;
+      left: -15px;
+      content: '';
+      box-shadow: inset 0px 2px 4px -1px rgba(0, 0, 0, 0.2), inset 0px 4px 5px 0px rgba(0, 0, 0, 0.14), inset 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+

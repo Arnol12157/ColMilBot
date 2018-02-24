@@ -1,0 +1,31 @@
+<section>
+  <header>
+    <h3 class="primary-color">Bar Chart</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Animated</mat-card-title>
+      <mat-card-content>
+        <div echarts [options]="animatedBarOption" (chartInit)="chartInstances.push($event)" class="bar-chart"></div>
+      </mat-card-content>
+    </mat-card>
+    <div fxLayout="column" fxLayout.gt-md="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Simple</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="simpleBarChartOption" (chartInit)="chartInstances.push($event)" class="bar-chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Horizontal</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="horizontalBarChartOption" (chartInit)="chartInstances.push($event)" class="bar-chart large"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </article>
+</section>

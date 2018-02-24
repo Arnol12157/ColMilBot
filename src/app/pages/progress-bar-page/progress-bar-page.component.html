@@ -1,0 +1,57 @@
+<section>
+  <header>
+    <h3 class="primary-color">Progress bar</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+
+        <div>
+          <h6>Color:</h6>
+          <mat-radio-group [(ngModel)]="color" fxLayout="column" fxLayout.gt-sm="row">
+            <mat-radio-button value="primary">
+              Primary
+            </mat-radio-button>
+            <mat-radio-button value="accent">
+              Accent
+            </mat-radio-button>
+            <mat-radio-button value="warn">
+              Warn
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div>
+          <h6>Mode:</h6>
+          <mat-radio-group [(ngModel)]="mode" fxLayout="column" fxLayout.gt-sm="row">
+            <mat-radio-button value="determinate">
+              Determinate
+            </mat-radio-button>
+            <mat-radio-button value="indeterminate">
+              Indeterminate
+            </mat-radio-button>
+            <mat-radio-button value="buffer">
+              Buffer
+            </mat-radio-button>
+            <mat-radio-button value="query">
+              Query
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div *ngIf="mode == 'determinate' || mode == 'buffer'">
+          <label>Progress:</label>
+          <mat-slider [(ngModel)]="value"></mat-slider>
+        </div>
+        <div *ngIf="mode == 'buffer'">
+          <label>Buffer:</label>
+          <mat-slider [(ngModel)]="bufferValue"></mat-slider>
+        </div>
+
+        <div>
+          <mat-progress-bar [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue"></mat-progress-bar>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

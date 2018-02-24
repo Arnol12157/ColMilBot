@@ -1,0 +1,38 @@
+<section>
+  <header>
+    <h3 class="primary-color">Table</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+        <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+          <span class="mat-title">Candies</span>
+        </span>
+          <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+        </span>
+          <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Search here"
+                         (searchDebounce)="search($event)" flex>
+          </td-search-box>
+        </div>
+        <mat-divider></mat-divider>
+        <td-data-table
+          #dataTable
+          [data]="filteredData"
+          [columns]="columns"
+          [sortable]="true"
+          [sortBy]="sortBy"
+          [sortOrder]="sortOrder"
+          (sortChange)="sort($event)">
+        </td-data-table>
+        <div class="mat-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+          <h3>No results to display.</h3>
+        </div>
+        <td-paging-bar #pagingBar [pageSize]="pageSize" [total]="filteredTotal" (change)="page($event)" class="push-top">
+          <span td-paging-bar-label hide-xs>Row per page:</span>
+          {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+        </td-paging-bar>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

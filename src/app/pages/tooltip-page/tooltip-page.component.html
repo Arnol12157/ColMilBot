@@ -1,0 +1,74 @@
+<section>
+  <header>
+    <h3 class="primary-color">Tooltip</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <div class="centered" cdk-scrollable>
+          <button #tooltip="matTooltip"
+                  mat-raised-button
+                  color="primary"
+                  [matTooltip]="message"
+                  [matTooltipPosition]="position"
+                  [disabled]="disabled"
+                  [matTooltipShowDelay]="showDelay"
+                  [matTooltipHideDelay]="hideDelay">
+            Mouse over to see the tooltip
+          </button>
+          <div>Scroll down while tooltip is open to see it hide automatically</div>
+          <div style="height: 400px;"></div>
+        </div>
+
+
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <div class="pad-right pad-bottom">
+            <div>
+              <strong>Message: </strong>
+              <mat-input-container><input matInput type="text" [(ngModel)]="message"></mat-input-container>
+            </div>
+            <div>
+              <strong>Show Delay (ms): </strong>
+              <mat-input-container>
+                <input matInput type="number" [(ngModel)]="showDelay">
+              </mat-input-container>
+            </div>
+            <div>
+              <strong>Hide Delay (ms): </strong>
+              <mat-input-container>
+                <input matInput type="number" [(ngModel)]="hideDelay">
+              </mat-input-container>
+            </div>
+            <div>
+              <strong>Disabled: </strong>
+              <mat-checkbox [(ngModel)]="disabled"></mat-checkbox>
+            </div>
+          </div>
+          <p>
+            <mat-radio-group [(ngModel)]="position" fxLayout="column">
+              <mat-radio-button value="below">Below</mat-radio-button>
+              <mat-radio-button value="above">Above</mat-radio-button>
+              <mat-radio-button value="left">Left</mat-radio-button>
+              <mat-radio-button value="right">Right</mat-radio-button>
+              <mat-radio-button value="before">Before</mat-radio-button>
+              <mat-radio-button value="after">After</mat-radio-button>
+            </mat-radio-group>
+          </p>
+        </div>
+
+
+        <div><strong>Mouse over to</strong></div>
+        <button mat-raised-button color="primary" (mouseenter)="tooltip.show()">
+          Show tooltip
+        </button>
+        <button mat-raised-button color="primary" (mouseenter)="tooltip.hide()">
+          Hide tooltip
+        </button>
+        <button mat-raised-button color="primary" (mouseenter)="tooltip.toggle()">
+          Toggle tooltip
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>
+

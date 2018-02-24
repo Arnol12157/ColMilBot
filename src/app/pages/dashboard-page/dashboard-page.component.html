@@ -1,0 +1,222 @@
+<section fxLayout="column" fxLayout.gt-md="row">
+  <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+    <div>
+      <mat-card>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <h5 class="font-w-light secondary-text-color">Web statistics</h5>
+          </div>
+          <div fxLayout="row">
+            <mat-tab-group fxHide.lt-md="true">
+              <mat-tab>
+                <ng-template matTabLabel>All time</ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template matTabLabel>2017</ng-template>
+              </mat-tab>
+              <mat-tab>
+                <ng-template matTabLabel>2016</ng-template>
+              </mat-tab>
+            </mat-tab-group>
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div echarts [options]="areaChartOption" (chartInit)="chartInstances.push($event)" class="area-chart"></div>
+      </mat-card>
+      <mat-card class="indicator-card">
+        <div fxLayout="row" fxLayoutWrap>
+          <div *ngFor="let item of indicatorItems" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-md="25"
+               class="indicator-item text-center">
+            <h5 class="font-w-light secondary-text-color">{{item.title}}</h5>
+            <p>
+              <mat-icon *ngIf="item.increase">expand_less</mat-icon>
+              <mat-icon *ngIf="!item.increase">expand_more</mat-icon>
+              <span>{{item.value}}</span>
+            </p>
+            <div echarts [options]="item.option" (chartInit)="chartInstances.push($event)" class="indicator-chart"></div>
+          </div>
+        </div>
+      </mat-card>
+      <mat-card class="rating-card">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <div>
+            <h5 class="font-w-light secondary-text-color">Rating</h5>
+          </div>
+          <mat-tab-group fxHide.lt-md="true">
+            <mat-tab>
+              <ng-template matTabLabel>Week</ng-template>
+            </mat-tab>
+            <mat-tab>
+              <ng-template matTabLabel>Month</ng-template>
+            </mat-tab>
+            <mat-tab>
+              <ng-template matTabLabel>Year</ng-template>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+        <mat-list>
+          <ng-container *ngFor="let item of ratingItems">
+            <mat-list-item>
+              <img mat-list-avatar src="{{item.avatar}}">
+              <h6 matLine>{{item.name}}</h6>
+              <p matLine>{{item.tag}}</p>
+              <div class="val-wrap" fxLayout="row" fxLayoutAlign="space-around center">
+                <mat-progress-bar fxFlex="70" [mode]="'determinate'" [value]="item.value"></mat-progress-bar>
+                <span fxFlex="30" class="rating-val secondary-text-color text-right">{{item.value}}%</span>
+              </div>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-card>
+    </div>
+  </div>
+  <div fxFlex="1 0 auto" fxFlex.gt-md="50" fxLayout="column" fxLayout.gt-sm="row">
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="50">
+      <div>
+        <mat-card class="statistics-card">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <h5 class="font-w-light secondary-text-color">Sales</h5>
+            </div>
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+          <div class="secondary-text-color">1 September, Monday</div>
+          <h4 class="font-w-light text-truncate push-bottom-none">
+            <span>$ 598,258</span>
+            <mat-icon>expand_less</mat-icon>
+          </h4>
+          <mat-card-footer>
+            <div echarts [options]="areaChartWithLineOption" (chartInit)="chartInstances.push($event)"
+                 class="area-chart-with-line"></div>
+          </mat-card-footer>
+        </mat-card>
+        <mat-card class="clients-card">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <button mat-fab>
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+            </div>
+            <div fxFlex class="pad-left-md">
+              <h5 class="push-none wide-spacing">396</h5>
+              <div class="secondary-text-color mat-subhead wide-spacing">New Clients</div>
+            </div>
+            <div fxFlexAlign="start">
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card>
+        <mat-card>
+          <mat-list>
+            <mat-list-item>
+              <img mat-list-avatar src="/assets/avatars-img/4040.png">
+              <h6 matLine>Peter Walsh</h6>
+              <p matLine>
+                <span>Ux/UI Designer @MOMO</span>
+              </p>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+          <div echarts [options]="doughnutOption" (chartInit)="chartInstances.push($event)" class="doughnut-chart"></div>
+          <div>
+            <div class="values-gb" fxLayout="row">
+              <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="pad-right-xs">
+                <mat-icon [color]="'primary'">expand_more</mat-icon>
+                <h6 class="font-w-light">58GB</h6>
+              </div>
+              <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="pad-left-xs">
+                <mat-icon [color]="'accent'">expand_less</mat-icon>
+                <h6 class="font-w-light">2GB</h6>
+              </div>
+            </div>
+            <div class="mat-caption font-w-light text-center">Lorem ipsum dolor sit amet.</div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="50">
+      <div>
+        <mat-card class="project-card">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <h5 class="font-w-light secondary-text-color">Project List</h5>
+            </div>
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="secondary-text-color">more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+          <mat-list>
+            <mat-list-item *ngFor="let item of projectItems">
+              <img mat-list-avatar src="{{item.avatar}}">
+              <h6 matLine>{{item.title}}</h6>
+              <p matLine>
+                <span>{{item.text}}</span>
+                <span class="primary-color">{{item.project}}</span>
+              </p>
+              <p matLine class="text-right">
+                {{item.date}}
+              </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card>
+        <mat-card class="notebook-card">
+          <mat-card-footer class="white-text-color">
+            <h5 class="font-w-light">Robert Hart</h5>
+            <div class="font-w-light">May 15, 2017</div>
+          </mat-card-footer>
+        </mat-card>
+        <mat-card class="todo-card">
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div>
+              <h5 class="font-w-light white-text-color">Todo List</h5>
+            </div>
+            <div>
+              <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+                <mat-icon class="white-text-color">more_vert</mat-icon>
+              </button>
+            </div>
+          </div>
+          <mat-list class="pad-right-sm">
+            <mat-list-item *ngFor="let item of todoItems">
+              <p matLine class="title">{{item.title}}</p>
+              <p matLine class="text">{{item.text}}</p>
+              <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+            </mat-list-item>
+            <mat-divider class="push-top push-bottom"></mat-divider>
+            <mat-list-item *ngFor="let item of doneItems">
+              <p matLine class="title"><s>{{item.title}}</s></p>
+              <p matLine class="text"><s>{{item.text}}</s></p>
+              <mat-checkbox [(ngModel)]="item.done"></mat-checkbox>
+            </mat-list-item>
+            <mat-input-container class="push-top-sm">
+              <input matInput  placeholder="Add new task">
+            </mat-input-container>
+          </mat-list>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
+<mat-menu #menuAbove="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item *ngFor="let item of menuItems">
+    {{ item.text }}
+  </button>
+</mat-menu>

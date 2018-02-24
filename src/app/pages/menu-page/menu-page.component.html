@@ -1,0 +1,108 @@
+<section>
+  <header>
+    <h3 class="primary-color">Menu</h3>
+  </header>
+  <article fxLayout="column" fxLayout.gt-sm="row">
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="33">
+      <mat-card>
+        <mat-card-content>
+          <p>You clicked on: {{ selected }}</p>
+
+          <mat-toolbar>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Open basic menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item *ngFor="let item of items" (click)="select(item.text)" [disabled]="item.disabled">
+                {{ item.text }}
+              </button>
+            </mat-menu>
+          </mat-toolbar>
+
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <p> Clicking these will navigate:</p>
+          <mat-toolbar>
+            <button mat-icon-button [matMenuTriggerFor]="anchorMenu" aria-label="Open anchor menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-toolbar>
+
+          <mat-menu #anchorMenu="matMenu">
+            <a mat-menu-item *ngFor="let item of items" href="/" [disabled]="item.disabled">
+              {{ item.text }}
+            </a>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="33">
+      <mat-card>
+        <mat-card-content>
+          <p>xPosition after and yPosition below</p>
+          <mat-toolbar>
+            <button mat-icon-button [matMenuTriggerFor]="menuBelow">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-toolbar>
+          <mat-menu #menuBelow="matMenu" xPosition="after" yPosition="below">
+            <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+              {{ item.text }}
+            </button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <p>xPosition after and yPosition above</p>
+          <mat-toolbar>
+            <button mat-icon-button [matMenuTriggerFor]="menuAfter">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-toolbar>
+          <mat-menu #menuAfter="matMenu" xPosition="after" yPosition="above">
+            <button mat-menu-item *ngFor="let item of items" [disabled]="item.disabled">
+              {{ item.text }}
+            </button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="33">
+      <mat-card>
+        <mat-card-content>
+          <p>xPosition before and yPosition below</p>
+          <mat-toolbar class="end-icon">
+            <button mat-icon-button [matMenuTriggerFor]="menuAbove">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-toolbar>
+          <mat-menu #menuAbove="matMenu" xPosition="before" yPosition="below">
+            <button mat-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              {{ item.text }}
+            </button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-content>
+          <p>xPosition before and yPosition above</p>
+          <mat-toolbar class="end-icon">
+            <button mat-icon-button [matMenuTriggerFor]="menuBefore">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </mat-toolbar>
+          <mat-menu #menuBefore="matMenu" xPosition="before" yPosition="above">
+            <button mat-menu-item *ngFor="let item of iconItems" [disabled]="item.disabled">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              {{ item.text }}
+            </button>
+          </mat-menu>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </article>
+</section>

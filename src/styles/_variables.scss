@@ -1,0 +1,54 @@
+@import '../../node_modules/@angular/material/theming';
+//Stylesheet contains main colors for themes
+
+/************************************** LIGHT THEME **************************************/
+$primary-text-color:   #212121;
+$light-app-primary: mat-palette($mat-light-blue);
+$light-app-accent:  mat-palette($mat-deep-orange);
+$light-app-warn:    mat-palette($mat-red);
+
+$light-app-theme: mat-light-theme($light-app-primary, $light-app-accent, $light-app-warn);
+$dark-app-theme: mat-dark-theme($light-app-primary, $light-app-accent, $light-app-warn);
+
+$light-app-theme-foreground: map_get($light-app-theme, foreground);
+$light-app-theme-foreground: map_merge($light-app-theme-foreground, (
+  base:            $primary-text-color,
+  divider:         rgba($primary-text-color, 0.12),
+  dividers:        rgba($primary-text-color, 0.12),
+  disabled:        rgba($primary-text-color, 0.38),
+  disabled-button: rgba($primary-text-color, 0.38),
+  disabled-text:   rgba($primary-text-color, 0.38),
+  hint-text:       rgba($primary-text-color, 0.38),
+  secondary-text:  rgba($primary-text-color, 0.54),
+  icon:            rgba($primary-text-color, 0.54),
+  icons:           rgba($primary-text-color, 0.54),
+  text:            rgba($primary-text-color, 0.87)
+));
+$light-app-theme: map_merge($light-app-theme, (foreground: $light-app-theme-foreground));
+
+$light-app-theme-background: map_get($light-app-theme, background);
+$light-app-theme-background: map_merge($light-app-theme-background, (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-grey, 50),
+  background-2: map_get($mat-grey, 100),
+  background-3: map_get($mat-grey, 200),
+  background-4: map_get($mat-grey, 300),
+  hover:      rgba(black, 0.04),
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white
+));
+$light-app-theme: map_merge($light-app-theme, (background: $light-app-theme-background));
+
+/************************************** DARK THEME **************************************/
+$dark-app-theme-background: map_get($dark-app-theme, background);
+$dark-app-theme-background: map_merge($dark-app-theme-background, (
+  background: #303030,
+  background-2: #2D2D2D,
+  background-3: #262626,
+  background-4: #212121,
+));
+$dark-app-theme: map_merge($dark-app-theme, (background: $dark-app-theme-background));
+

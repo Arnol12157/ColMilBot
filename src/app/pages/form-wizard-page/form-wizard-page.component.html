@@ -1,0 +1,138 @@
+<section>
+  <header>
+    <h3 class="primary-color">Form wizard</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <mat-tab-group #tabGroup dynamicHeight="true">
+          <mat-tab label="Step 1">
+            <h5>Login information</h5>
+            <form #loginForm="ngForm">
+              <div>
+
+                <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxFlex.gt-md="25">
+                  <mat-input-container [dividerColor]="!userName.valid && !userName.pristine ? 'warn' : 'primary'">
+                    <input type="text" matInput placeholder="Username" name="userName" required ngModel
+                           #userName="ngModel">
+                    <mat-hint *ngIf="!userName.valid && !userName.pristine" class="warn-color">Field is required
+                    </mat-hint>
+                  </mat-input-container>
+                  <mat-input-container [dividerColor]="!mail.valid && !mail.pristine ? 'warn' : 'primary'">
+                    <input type="email" email matInput placeholder="Email" name="mail" required ngModel #mail="ngModel">
+                    <mat-hint *ngIf="!mail.valid && !mail.pristine" class="warn-color">Not match email pattern</mat-hint>
+                  </mat-input-container>
+                  <mat-input-container [dividerColor]="!password.valid && !password.pristine ? 'warn' : 'primary'">
+                    <input type="password" required matInput placeholder="Password" name="password" minlength="6" ngModel
+                           #password="ngModel">
+                    <mat-hint *ngIf="!password.valid && !password.pristine" class="warn-color">
+                      {{password.value.length}} / 6
+                    </mat-hint>
+                  </mat-input-container>
+                  <mat-input-container
+                    [dividerColor]="!checkPassword.valid && !checkPassword.pristine ? 'warn' : 'primary'">
+                    <input type="password" required matInput placeholder="Confirm password" name="checkPassword" ngModel
+                           #checkPassword="ngModel" [equalTo]="password">
+                    <mat-hint *ngIf="!checkPassword.valid && !checkPassword.pristine" class="warn-color">Password does
+                      not
+                      match
+                    </mat-hint>
+                  </mat-input-container>
+                </div>
+              </div>
+              <div>
+                <button mat-raised-button color="primary" (click)="tabGroup.selectedIndex=1"
+                        [disabled]="!loginForm.valid">Next
+                </button>
+              </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Step 2" [disabled]="!loginForm.valid">
+            <h5>Address</h5>
+            <form #addressForm="ngForm">
+              <div>
+                <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxFlex.gt-md="25">
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <mat-input-container fxFlex [dividerColor]="!name.valid && !name.pristine ? 'warn' : 'primary'">
+                    <input type="text" matInput placeholder="Name" name="name" required ngModel
+                           #name="ngModel">
+                    <mat-hint *ngIf="!name.valid && !name.pristine" class="warn-color">Field is required</mat-hint>
+                  </mat-input-container>
+                  <mat-input-container fxFlex
+                                      [dividerColor]="!lastName.valid && !lastName.pristine ? 'warn' : 'primary'">
+                    <input type="text" matInput placeholder="LastName" name="lastName" required ngModel
+                           #lastName="ngModel">
+                    <mat-hint *ngIf="!lastName.valid && !lastName.pristine" class="warn-color">Field is required
+                    </mat-hint>
+                  </mat-input-container>
+                </div>
+                <mat-input-container>
+                  <input type="text" matInput placeholder="Phone" name="phone" ngModel #phone="ngModel">
+                </mat-input-container>
+                <mat-select placeholder="Select county" ngModel name="country" #country="ngModel">
+                  <mat-option [value]="'First country'">First country</mat-option>
+                  <mat-option [value]="'Second country'">Second country</mat-option>
+                  <mat-option [value]="'Third country'">Third country</mat-option>
+                </mat-select>
+                <mat-input-container>
+                  <input type="text" matInput placeholder="Zip Code" name="zipCode" ngModel #zipCode="ngModel">
+                </mat-input-container>
+                <mat-input-container>
+                  <textarea matInput matTextareaAutosize placeholder="Address" minRows="5"
+                            [ngModel]="" #address="ngModel"></textarea>
+                </mat-input-container>
+              </div>
+              </div>
+              <div>
+                <button mat-raised-button color="primary" (click)="tabGroup.selectedIndex=0">Previous</button>
+                <button mat-raised-button color="primary" (click)="tabGroup.selectedIndex=2"
+                        [disabled]="!addressForm.valid">Next
+                </button>
+              </div>
+
+            </form>
+          </mat-tab>
+          <mat-tab label="Step 3" [disabled]="!addressForm.valid">
+            <h5>Confirmation</h5>
+            <mat-list>
+              <mat-list-item>
+                <h4 matLine>User name</h4>
+                <p matLine><em>{{userName.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item>
+                <h4 matLine>Email</h4>
+                <p matLine><em>{{mail.value}}</em></p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <mat-list-item>
+                <h4 matLine>Name</h4>
+                <p matLine><em>{{name.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item>
+                <h4 matLine>Last Name</h4>
+                <p matLine><em>{{lastName.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item *ngIf="phone.value">
+                <h4 matLine>Phone</h4>
+                <p matLine><em>{{phone.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item *ngIf="country.value">
+                <h4 matLine>Country</h4>
+                <p matLine><em>{{country.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item *ngIf="address.value">
+                <h4 matLine>Address</h4>
+                <p matLine><em>{{address.value}}</em></p>
+              </mat-list-item>
+              <mat-list-item *ngIf="zipCode.value">
+                <h4 matLine>ZipCode</h4>
+                <p matLine><em>{{zipCode.value}}</em></p>
+              </mat-list-item>
+            </mat-list>
+            <button mat-raised-button color="primary">Confirm</button>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

@@ -1,0 +1,47 @@
+<section>
+  <header>
+    <h3 class="primary-color">Line Chart</h3>
+  </header>
+  <article>
+    <div fxLayout="column" fxLayout.gt-md="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Simple</mat-card-title>
+          <mat-card-content>
+            <div class="parent">
+              <div echarts [options]="lineChartOption" (chartInit)="chartInstances.push($event)" class="line-chart"></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Multiple Axes</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="multipleAxesOption" (chartInit)="chartInstances.push($event)" class="line-chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div fxLayout="column" fxLayout.gt-md="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Area Chart</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="areaOption" (chartInit)="chartInstances.push($event)" class="line-chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Stacked Area</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="stackedAreaOption" (chartInit)="chartInstances.push($event)" class="line-chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </article>
+</section>

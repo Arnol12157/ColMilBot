@@ -1,0 +1,40 @@
+@import "~@angular/material/theming";
+
+.blocks {
+  height: 350px;
+
+  &.low {
+    height: 60px;
+  }
+  &>div {
+    padding-top: 10px;
+    text-align: center;
+    min-width: 75px;
+    min-height: 40px;
+    border-radius: 2px;
+    @include mat-elevation(2);
+    &:nth-child(2) {
+      min-height: 55px;
+    }
+    &:nth-child(4) {
+      min-height: 55px;
+    }
+  }
+}
+.low-blocks {
+  height: 100px;
+  .block {
+    margin: 5px;
+    line-height: 100px;
+    text-align: center;
+  }
+}
+.block {
+  @include mat-elevation(5);
+}
+mat-radio-group {
+  padding-top: 15px;
+}
+.mat-radio-button {
+  margin-top: 10px;
+}

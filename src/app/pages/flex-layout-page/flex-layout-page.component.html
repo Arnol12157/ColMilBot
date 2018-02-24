@@ -1,0 +1,73 @@
+<section>
+  <header>
+    <h3 class="primary-color">Flex layout</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Layout Children with 'layout-align'</mat-card-title>
+      <mat-card-content>
+        <div [fxLayout]="direction" [fxLayoutAlign]="layoutAlign()" class="blocks">
+          <div class="block primary-light-background-color" fxHide="lt-sm"></div>
+          <div class="block primary-light-background-color"></div>
+          <div class="block primary-light-background-color"></div>
+          <div class="block primary-light-background-color"></div>
+          <div class="block primary-light-background-color" fxHide="lt-sm"></div>
+        </div>
+        <br>
+        <div fxLayout="column" fxLayout.gt-sm="row">
+          <div>
+            <div>Layout Direction</div>
+            <mat-radio-group [(ngModel)]="direction" fxLayout="column">
+              <mat-radio-button value="row">row</mat-radio-button>
+              <mat-radio-button value="column">column</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <div>Alignment in Layout Direction ({{direction == 'row' ? 'horizontal' : 'vertical'}})</div>
+            <mat-radio-group name="mainAxisOptions" [(ngModel)]="mainAxis" fxLayout="column">
+              <mat-radio-button value="">none</mat-radio-button>
+              <mat-radio-button value="start">start (default)</mat-radio-button>
+              <mat-radio-button value="center">center</mat-radio-button>
+              <mat-radio-button value="end">end</mat-radio-button>
+              <mat-radio-button value="space-around">space-around</mat-radio-button>
+              <mat-radio-button value="space-between">space-between</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div>
+            <div>Alignment in Perpendicular Direction ({{direction == 'column' ? 'horizontal' : 'vertical'}})</div>
+            <mat-radio-group name="crossAxisOptions" [(ngModel)]="crossAxis" fxLayout="column">
+              <mat-radio-button value="none"><em>none</em></mat-radio-button>
+              <mat-radio-button value="start">start</mat-radio-button>
+              <mat-radio-button value="center">center</mat-radio-button>
+              <mat-radio-button value="end">end</mat-radio-button>
+              <mat-radio-button value="stretch">stretch (default)</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <br>
+        <div>
+          <div class="secondary-text-color">
+            &lt;div fxLayout="{{ direction }}"
+            <span>fxLayoutAlign="{{ layoutAlign() }}"</span>
+            &gt;
+          </div>
+        </div>
+      </mat-card-content>
+
+
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Flex proportion</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="row" class="low-blocks">
+          <div fxFlex="10" class="block primary-light-background-color">1</div>
+          <div fxFlex="20" class="block primary-light-background-color">2</div>
+          <div fxFlex="30" class="block primary-light-background-color">3</div>
+          <div fxFlex="40" class="block primary-light-background-color">4</div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>
+
+

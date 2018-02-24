@@ -1,0 +1,26 @@
+@import '/../../../styles/theme/color-mixins';
+@mixin chat-page-theme($theme) {
+  .chat-page {
+    .mat-select {
+      .mat-select-arrow,
+      &:focus:not(.mat-select-disabled) .mat-select-arrow,
+      .mat-select-value-text {
+        color: primary-contrast-color($theme);
+      }
+    }
+    .chat {
+      .message {
+        background-color: map-get(map-get($theme, background), card);
+      }
+      .self {
+        .message {
+          background-color: primary-color($theme);
+          color: primary-contrast-color($theme);
+        }
+      }
+    }
+    .add-area {
+      background-color: map-get(map-get($theme, background), card);
+    }
+  }
+}

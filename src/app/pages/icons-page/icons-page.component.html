@@ -1,0 +1,23 @@
+<section>
+  <header>
+    <h3 class="primary-color">Icons</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>
+        Material Icons
+      </mat-card-title>
+      <mat-card-content>
+        <mat-icon class="icon-color" *ngFor="let iconName of materialIcons">{{iconName}}</mat-icon>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>
+        Font Awesome
+      </mat-card-title>
+      <mat-card-content>
+        <mat-icon class="icon-color" *ngFor="let iconClass of fontAwesomeIcons" fontSet="fontawesome" [fontIcon]="iconClass"></mat-icon>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

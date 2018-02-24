@@ -1,0 +1,12 @@
+<ul>
+  <li *ngIf="colors[500]" class="main"
+      [style.background]="sanitize(colors[500])" [style.color]="sanitize(contrastColors[500])">
+    <span>{{500}}</span>
+    <span>{{colors[500]}}</span>
+  </li>
+  <li *ngFor="let key of keys(colors)" [class.break]="key == 'A100'"
+      [style.background]="sanitize(colors[key])" [style.color]="sanitize(contrastColors[key])">
+    <span>{{key}}</span>
+    <span>{{colors[key]}}</span>
+  </li>
+</ul>

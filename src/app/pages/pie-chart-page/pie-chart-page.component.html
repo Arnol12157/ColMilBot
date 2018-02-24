@@ -1,0 +1,32 @@
+<section>
+  <header>
+    <h3 class="primary-color">Pie Chart</h3>
+  </header>
+  <article>
+    <div fxLayout="column" fxLayout.gt-md="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Customized</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="customizedOption" (chartInit)="chartInstances.push($event)" class="chart"></div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Doughnut</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="doughnutOption" (chartInit)="chartInstances.push($event)" class="chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-md="50">
+        <mat-card>
+          <mat-card-title>Nested</mat-card-title>
+          <mat-card-content>
+            <div echarts [options]="nestedOption" (chartInit)="chartInstances.push($event)" class="chart"></div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </article>
+</section>

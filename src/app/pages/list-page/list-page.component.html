@@ -1,0 +1,139 @@
+<section>
+  <header>
+    <h3 class="primary-color">List</h3>
+  </header>
+  <article fxLayout="column" fxLayout.gt-sm="row" fxLayoutWrap>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="33">
+      <mat-card>
+        <mat-card-title>Normal list</mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <h3 mat-subheader>Items</h3>
+            <mat-list-item *ngFor="let item of items">
+              {{item}}
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Normal list</mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let contact of contacts">
+              <h3 matLine>{{contact.name}}</h3>
+              <p matLine>extra line</p>
+              <p matLine>{{contact.headline}}</p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Normal list</mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <h3 mat-subheader>Today</h3>
+            <mat-list-item *ngFor="let message of messages">
+              <mat-icon class="icon-color" mat-list-icon>account_circle</mat-icon>
+              <h4 matLine>{{message.from}}</h4>
+              <p matLine>
+                <span>{{message.subject}} -- </span>
+                <span>{{message.message}}</span>
+              </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item *ngFor="let message of messages">
+              <h4 matLine>{{message.from}}</h4>
+              <p matLine> {{message.subject}} </p>
+              <p matLine>{{message.message}} </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="50" fxFlex.gt-md="33">
+      <mat-card>
+        <mat-card-title>Dense list</mat-card-title>
+        <mat-card-content>
+          <mat-list dense>
+            <h3 mat-subheader>Items</h3>
+            <mat-list-item *ngFor="let item of items">
+              {{item}}
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Dense list</mat-card-title>
+        <mat-card-content>
+          <mat-list dense>
+            <mat-list-item *ngFor="let contact of contacts">
+              <h3 matLine>{{contact.name}}</h3>
+              <p matLine>{{contact.headline}}</p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Dense list</mat-card-title>
+        <mat-card-content>
+          <mat-list dense>
+            <h3 mat-subheader>Today</h3>
+            <mat-list-item *ngFor="let message of messages">
+              <mat-icon class="icon-color" mat-list-icon>account_circle</mat-icon>
+              <h4 matLine>{{message.from}}</h4>
+              <p matLine> {{message.subject}} </p>
+              <p matLine>{{message.message}} </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="1 0 auto" fxFlex.gt-sm="100" fxFlex.gt-md="33">
+      <mat-card>
+        <mat-card-title>Nav list</mat-card-title>
+        <mat-card-content>
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let link of links">
+              <mat-icon class="icon-color" mat-list-icon>folder</mat-icon>
+              <span matLine>{{ link.name }}</span>
+              <span matLine> Description </span>
+            </a>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Nav list</mat-card-title>
+        <mat-card-content>
+          <mat-nav-list>
+            <a mat-list-item *ngFor="let link of links">
+              {{ link.name }}
+            </a>
+          </mat-nav-list>
+          <mat-nav-list>
+            <mat-list-item *ngFor="let link of links">
+              <a matLine >{{ link.name }}</a>
+              <button mat-icon-button>
+                <mat-icon class="icon-color">info</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Nav list</mat-card-title>
+        <mat-card-content>
+          <mat-nav-list dense>
+            <mat-list-item *ngFor="let link of links">
+              <a matLine >{{ link.name }}</a>
+              <button mat-icon-button>
+                <mat-icon class="icon-color">info</mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </article>
+</section>
+
+

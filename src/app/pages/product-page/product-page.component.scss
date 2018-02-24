@@ -1,0 +1,20 @@
+.product-item {
+  img {
+    width: 100%;
+    max-width: 600px;
+  }
+  .expandable {
+    mat-icon {
+      vertical-align: middle;
+    }
+    .mat-subhead {
+      line-height: 40px;
+    }
+    button {
+      padding: 0;
+    }
+  }
+  .share {
+    line-height: 40px;
+  }
+}

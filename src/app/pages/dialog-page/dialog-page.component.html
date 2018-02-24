@@ -1,0 +1,14 @@
+<section>
+  <header>
+    <h3 class="primary-color">Dialog</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <button mat-raised-button color="primary" (click)="openDialog()">Open dialog</button>
+        <br>
+        <p>You selected: <mark *ngIf="selectedOption">{{selectedOption}}</mark></p>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

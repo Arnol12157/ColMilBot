@@ -1,0 +1,102 @@
+<section class="wrapper cart-page">
+  <header>
+    <h5>Product page</h5>
+  </header>
+  <article class="push-top">
+    <button mat-button routerLink="/main/products">
+      <mat-icon class="push-right-sm">arrow_back</mat-icon>
+      BACK TO LIST
+    </button>
+    <div fxLayout="column" fxLayout.gt-md="row" class="product-item">
+      <div fxFlex="1 0 auto" fxFlex.gt-md="65" class="text-center">
+        <img src="{{selectedItem.image}}">
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-md="35">
+        <div class="mat-headline">{{selectedItem.name}}</div>
+        <div class="secondary-text-color mat-caption">Item code: {{selectedItem.code}}</div>
+        <div class="mat-headline accent-color push-top-sm">EUR {{selectedItem.price}}</div>
+        <div class="push-top-md">
+          <mat-select [(ngModel)]="selectedItem.color" class="push-right">
+            <mat-option *ngFor="let color of availableColors" [value]="color">
+              {{color}}
+            </mat-option>
+          </mat-select>
+          <mat-select [(ngModel)]="selectedItem.size">
+            <mat-option *ngFor="let size of availableSizes" [value]="size">
+              {{size}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="secondary-text-color push-top-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Explicabo, sit.
+        </div>
+        <div class="push-top-sm">
+          <button mat-raised-button color="primary">ADD TO CART</button>
+          <button mat-icon-button color="primary">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+        <div class="expandable push-top">
+          <button mat-button fxFlexFill (click)="detailsOpen = !detailsOpen">
+            <div fxLayout="row">
+              <div fxFlex class="text-left mat-subhead">Details</div>
+              <div fxFlex class="text-right">
+                <mat-icon>{{detailsOpen ? 'remove' : 'add'}}</mat-icon>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div [tdToggle]="!detailsOpen" class="secondary-text-color">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda corporis cum dignissimos dolores
+          earum, eos est excepturi ipsum nam obcaecati odit quibusdam quisquam rem sed sint tenetur ullam velit.
+        </div>
+
+        <div class="expandable push-top-sm">
+          <button mat-button fxFlexFill (click)="reviewsOpen = !reviewsOpen">
+            <div fxLayout="row">
+              <div fxFlex class="text-left mat-subhead">Reviews</div>
+              <div fxFlex class="text-right">
+                <mat-icon>{{reviewsOpen ? 'remove' : 'add'}}</mat-icon>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div [tdToggle]="!reviewsOpen" class="secondary-text-color">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda corporis cum dignissimos dolores
+          earum, eos est excepturi ipsum nam obcaecati odit quibusdam quisquam rem sed sint tenetur ullam velit.
+        </div>
+
+        <div class="expandable push-top-sm">
+          <button mat-button fxFlexFill (click)="shippingOpen = !shippingOpen">
+            <div fxLayout="row">
+              <div fxFlex class="text-left mat-subhead">Shipping & Returns</div>
+              <div fxFlex class="text-right">
+                <mat-icon>{{shippingOpen ? 'remove' : 'add'}}</mat-icon>
+              </div>
+            </div>
+          </button>
+        </div>
+        <div [tdToggle]="!shippingOpen" class="secondary-text-color">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet assumenda corporis cum dignissimos dolores
+          earum, eos est excepturi ipsum nam obcaecati odit quibusdam quisquam rem sed sint tenetur ullam velit.
+        </div>
+        <div class="push-top-xxl share" fxLayout="row">
+          <div class="text-left" fxFlex>SHARE PRODUCT</div>
+          <div class="text-right" fxFlex>
+            <button mat-icon-button>
+              <mat-icon class="mat-headline" fontSet="fontawesome" fontIcon="fa-instagram"></mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon class="mat-headline" fontSet="fontawesome" fontIcon="fa-twitter"></mat-icon>
+            </button>
+            <button mat-icon-button>
+              <mat-icon class="mat-headline" fontSet="fontawesome" fontIcon="fa-facebook-f"></mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+</section>

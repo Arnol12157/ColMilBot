@@ -1,0 +1,74 @@
+<section class="wrapper cart-page">
+  <header class="text-center">
+    <h5>Shopping Cart</h5>
+  </header>
+  <article fxLayout="column" fxLayout.gt-md="row" class="push-top-lg">
+    <div fxFlex="1 0 auto" fxFlex.gt-md="65">
+      <ng-container *ngFor="let item of productItems; let lastItem = last">
+        <div class="product-item" fxLayout="row">
+          <div fxFlex class="product-img">
+            <img src="{{item.image}}">
+          </div>
+          <div fxFlex class="pad-left-lg">
+            <div><strong>{{item.name}}</strong></div>
+            <div>EUR {{item.price}}</div>
+            <div class="details secondary-text-color push-top-xxl">
+              <div class="">Item code: {{item.code}}</div>
+              <div>Color: {{item.color}}</div>
+              <div class="quantity">
+                <span>Quantity:</span>
+                <mat-select [(ngModel)]="item.quantity">
+                  <mat-option *ngFor="let amount of orderQuantity" [value]="amount">
+                    {{amount}}
+                  </mat-option>
+                </mat-select>
+              </div>
+            </div>
+            <button class="remove-btn" mat-icon-button (click)="productItems.splice(productItems.indexOf(item), 1)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div *ngIf="!lastItem" class="divider background-color-4"></div>
+      </ng-container>
+    </div>
+
+    <div fxFlex="1 0 auto" fxFlex.gt-md="35">
+      <div class="pad primary-background-color primary-contrast-color">
+        <div fxLayout="row">
+          <div fxFlex>ORDER VALUE</div>
+          <div fxFlex class="text-right">EUR {{getOrderSum()}}</div>
+        </div>
+        <div>{{productItems.length}} product(s)</div>
+        <div fxLayout="row" class="push-top">
+          <div fxFlex>Shipping</div>
+          <div fxFlex class="text-right">EUR {{shippingCost}}</div>
+        </div>
+        <div>{{shippingType}}</div>
+        <div class="divider primary-light-background-color push-top"></div>
+        <div fxLayout="row" class="push-top">
+          <div fxFlex>Total</div>
+          <div fxFlex class="text-right">EUR {{getOrderSum() + shippingCost}}</div>
+        </div>
+        <div class="push-top">
+          <button mat-raised-button color="accent" fxFlexFill>CHECKOUT</button>
+        </div>
+        <div class="push-top mat-caption">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam commodi doloremque error esse eveniet
+            ex exercitationem nesciunt totam unde.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab id maiores nemo qui quidem, totam.</p>
+        </div>
+      </div>
+      <div class="pad secondary-text-color">
+        <div><strong>Lorem</strong></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet delectus dolor inventore quas quod
+          reprehenderit.
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias et fugiat illo molestiae quis?</p>
+      </div>
+    </div>
+  </article>
+  <button mat-button routerLink="/main/products">
+    <mat-icon class="push-right-sm">arrow_back</mat-icon>BACK TO SHOPPING
+  </button>
+</section>

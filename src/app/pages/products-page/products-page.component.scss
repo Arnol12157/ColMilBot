@@ -1,0 +1,33 @@
+:host {
+  header .mat-subhead {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .mat-card{
+    padding-bottom: 0;
+    padding-top: 0;
+    &.main-card {
+      mat-card-content {
+        .main-product {
+          display: block;
+          min-height: 400px;
+          background: no-repeat center;
+          background-size: contain;
+        }
+      }
+    }
+    .product {
+      display: block;
+      min-height: 140px;
+      background: no-repeat center;
+      background-size: contain;
+      @media screen and (max-width: 960px) {
+        min-height: 400px;
+      }
+    }
+  }
+
+
+
+}
+

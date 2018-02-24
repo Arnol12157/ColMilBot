@@ -1,0 +1,23 @@
+<section>
+  <article>
+    <mat-card>
+      <mat-card-content class="text-center">
+        <a href="/" class="push-bottom-md">
+          <img src="/assets/logo/logo-text-black.png">
+        </a>
+        <form name="loginForm" [formGroup]="loginForm" novalidate (ngSubmit)="onLoginEmail()">
+          <mat-input-container fxFlexFill>
+            <input matInput placeholder="Email" formControlName="email" #loginInput>
+          </mat-input-container>
+          <div class="push-top-sm">
+            <mat-input-container fxFlexFill>
+              <input matInput placeholder="Contraseña" type="password" formControlName="password" #passwordInput>
+            </mat-input-container>
+          </div>
+          <button mat-raised-button color="primary" [disabled]="loginForm.invalid" class="push-top-sm">LOGIN</button>
+        </form>
+        <p>Aun no tienes cuenta? <a routerLink="/sign-up" class="primary-color">Registrate</a></p>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

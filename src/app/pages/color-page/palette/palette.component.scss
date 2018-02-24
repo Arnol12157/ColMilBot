@@ -1,0 +1,21 @@
+:host li {
+  height: 15px;
+  padding: 15px 10px 15px 10px;
+  &.break {
+    margin-top: 10px;
+  }
+  &.main {
+    height: 45px;
+    line-height: 45px;
+  }
+  span {
+    &:first-child {
+      float: left;
+    }
+    &:last-child {
+      float: right;
+    }
+  }
+}
+
+

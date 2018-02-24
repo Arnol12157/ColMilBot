@@ -1,0 +1,23 @@
+html {
+  body {
+    .mat-card {
+      padding: 24px;
+      .mat-card-actions {
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 8px 0;
+      }
+      .mat-card-footer {
+        margin: 0 -24px -18px -24px
+      }
+      &, & .mat-card {
+        & .mat-card-actions:last-child {
+          margin-bottom: -16px;
+          margin-left: -16px;
+          margin-right: -16px;
+          padding: 8px 0;
+        }
+      }
+    }
+  }
+}

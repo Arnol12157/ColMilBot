@@ -1,0 +1,14 @@
+{
+  "ENGLISH": "Englisch",
+  "GERMAN": "Deutsche",
+  "NODEJS": "Node.js ist eine serverseitige Plattform in der Softwareentwicklung zum Betrieb von Netzwerkanwendungen. Insbesondere lassen sich Webserver damit realisieren. Node.js wird in der JavaScript-Laufzeitumgebung „V8“ ausgeführt, die ursprünglich für Google Chrome entwickelt wurde, und bietet eine ressourcensparende Architektur, die eine besonders große Anzahl gleichzeitig bestehender Netzwerkverbindungen ermöglicht.",
+  "DAY": "Tag",
+  "NIGHT": "Nacht",
+  "MONDAY": "Montag",
+  "TUESDAY": "Dienstag",
+  "WEDNESDAY": "Mittwoch",
+  "THURSDAY": "Donnerstag",
+  "FRIDAY": "Freitag",
+  "SATURDAY": "Samstag",
+  "SUNDAY": "Sonntag"
+}

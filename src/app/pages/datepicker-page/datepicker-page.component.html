@@ -1,0 +1,16 @@
+<section>
+  <header>
+    <h3 class="primary-color">Datepicker</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <mat-input-container>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        </mat-input-container>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

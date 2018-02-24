@@ -1,0 +1,21 @@
+@import "../variables";
+@import "color-mixins";
+//Theme mixin for text
+@mixin typography-theme($theme) {
+  mark {
+    background-color: primary-color-light($theme);
+  }
+  .blockquote {
+    &:before {
+      background-color: primary-color-light($theme);
+    }
+  }
+  .blockquote-footer {
+    color: secondary-text-color($theme);
+  }
+}
+
+
+
+
+

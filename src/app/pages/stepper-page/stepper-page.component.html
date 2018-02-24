@@ -1,0 +1,71 @@
+<section>
+  <header>
+    <h3 class="primary-color">Stepper</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Vertical</mat-card-title>
+      <mat-card-content>
+        <td-steps>
+          <td-step #step1 label="Basic Usage" sublabel="Toggle between active and inactive and emit events." [active]="true" [disabled]="disabled" (activated)="activeStep1Event()" (deactivated)="deactiveStep1Event()">
+            <ng-template td-step-label><span>Basic Usage (template)</span></ng-template>
+            Include any content you like for an active stepper
+          </td-step>
+          <td-step #step2 label="Required State" sublabel="Toggle between active and inactive while in required state." [state]="stateStep2" [disabled]="disabled">
+            This step is required!
+            <ng-template td-step-actions>
+              <div>
+                <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper">Toggle Require</button>
+                <button mat-button (click)="step2.active = false" class="text-upper">Cancel</button>
+              </div>
+            </ng-template>
+          </td-step>
+          <td-step #step3 label="Complete State" sublabel="Toggle between active and inactive while in complete state." [state]="stateStep3" [disabled]="disabled">
+            Mark this step complete and get a summary
+            <ng-template td-step-summary>
+              Use an optional step summary to summarize the info in this step
+            </ng-template>
+            <ng-template td-step-actions>
+              <div>
+                <button mat-raised-button color="primary" (click)="toggleCompleteStep3()" class="text-upper">Toggle Complete</button>
+                <button mat-button (click)="step3.active = false" class="text-upper">Cancel</button>
+              </div>
+            </ng-template>
+          </td-step>
+        </td-steps>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Horizontal and responsive</mat-card-title>
+      <mat-card-content>
+        <td-steps [mode]="isScreenGtSm ? 'horizontal' : 'vertical'">
+          <td-step #step1 label="Basic Usage" sublabel="Toggle between active and inactive and emit events." [active]="true" [disabled]="disabled" (activated)="activeStep1Event()" (deactivated)="deactiveStep1Event()">
+            <ng-template td-step-label><span>Basic Usage (template)</span></ng-template>
+            Include any content you like for an active stepper
+          </td-step>
+          <td-step #step2 label="Required State" sublabel="Toggle between active and inactive while in required state." [state]="stateStep2" [disabled]="disabled">
+            This step is required!
+            <ng-template td-step-actions>
+              <div>
+                <button mat-raised-button color="primary" (click)="toggleRequiredStep2()" class="text-upper">Toggle Require</button>
+                <button mat-button (click)="step2.active = false" class="text-upper">Cancel</button>
+              </div>
+            </ng-template>
+          </td-step>
+          <td-step #step3 label="Complete State" sublabel="Toggle between active and inactive while in complete state." [state]="stateStep3" [disabled]="disabled">
+            Mark this step complete and get a summary
+            <ng-template td-step-summary>
+              Use an optional step summary to summarize the info in this step
+            </ng-template>
+            <ng-template td-step-actions>
+              <div>
+                <button mat-raised-button color="primary" (click)="toggleCompleteStep3()" class="text-upper">Toggle Complete</button>
+                <button mat-button (click)="step3.active = false" class="text-upper">Cancel</button>
+              </div>
+            </ng-template>
+          </td-step>
+        </td-steps>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

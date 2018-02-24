@@ -1,0 +1,15 @@
+:host {
+  .wrap {
+    height: 400px;
+    max-width: 300px;
+    min-width: 250px;
+    position: relative;
+  }
+  /deep/ .toggle-children-wrapper {
+    line-height: 37px;
+  }
+  button[mat-raised-button] {
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+}

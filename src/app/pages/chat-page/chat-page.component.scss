@@ -1,0 +1,110 @@
+@import '../../../styles/theme/color-mixins';
+@import '../../../styles/mixins';
+
+:host {
+  .mat-card-content {
+    height: calc(100vh - 250px);
+    padding: 0;
+    .mat-sidenav {
+      width: 350px;
+      @media screen and (max-width: 600px) {
+        width: 300px;
+      }
+      .group {
+        position: relative;
+        .group-letter {
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          @include transform(translateY(-50%));
+        }
+        /deep/ .mat-list-item-content {
+          padding-left: 66px;
+        }
+      }
+      .add-btn {
+        position: absolute;
+        bottom: 25px;
+        right: 30px;
+      }
+      td-search-box {
+        max-width: 170px;
+        /deep/ {
+          input {
+            font-size: 16px;
+          }
+          [mat-icon-button] {
+            margin: 0;
+          }
+        }
+      }
+      .mat-select {
+        padding-top: 0;
+        margin-right: 50px;
+        /deep/ {
+          .mat-select-underline {
+            display: none;
+          }
+          .mat-select-trigger {
+            min-width: 60px;
+          }
+        }
+      }
+      .perfect-scrollbar {
+        height: calc(100% - 70px);
+      }
+    }
+    .chat-toolbar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+    .chat {
+      box-sizing: border-box;
+      overflow: auto;
+      padding: 74px 20px 80px;
+      .message {
+        padding: 10px 30px;
+        border-radius: 0 40px 40px 40px;
+        margin: 10px 50px 10px 0;
+      }
+      .self {
+        .message {
+          margin: 10px 0 10px 50px;
+          border-radius: 40px 0 40px 40px;
+        }
+      }
+    }
+    .add-area {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 80px;
+      text-align: center;
+      padding: 0 60px;
+      @media screen and (max-width: 600px) {
+        padding: 0 20px;
+      }
+      .mat-input-container {
+        min-width: 60%;
+      }
+      textarea {
+        resize: none;
+      }
+      button {
+        margin: auto 0;
+      }
+    }
+  }
+  /deep/ .mat-drawer-content {
+    display: flex;
+    overflow: visible;
+    margin-left: 350px;
+    @media screen and (max-width: 600px) {
+      margin-left: 300px;
+    }
+  }
+}
+

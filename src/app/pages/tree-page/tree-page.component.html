@@ -1,0 +1,68 @@
+<section>
+  <header>
+    <h3 class="primary-color">Tree</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content>
+        <form>
+          <mat-input-container fxFlex>
+            <input matInput #filter (keyup)="filterNodes(filter.value, tree)" placeholder="Filter nodes">
+          </mat-input-container>
+        </form>
+        <div class="wrap">
+          <tree-root #tree [nodes]="nodes" [options]="customTemplateStringOptions" [focused]="true">
+            <ng-template #treeNodeTemplate let-node>
+              <span title="{{node.data.subTitle}}">{{ node.data.name }}</span>
+              <button mat-button (click)="go($event)">Custom Action</button>
+            </ng-template>
+            <ng-template #loadingTemplate>Loading, please hold....</ng-template>
+          </tree-root>
+        </div>
+        <br>
+        <p><strong>Keys:</strong></p>
+        <kbd>down | up | left | right | space | enter</kbd>
+        <p><strong>Mouse:</strong></p>
+        <kbd>click</kbd> to select | <kbd>shift+click</kbd> to select multi
+        <p><strong>API:</strong></p>
+        <button mat-raised-button color="primary" (click)="tree.treeModel.focusNextNode()">next node</button>
+        <button mat-raised-button color="primary" (click)="tree.treeModel.focusPreviousNode()">previous node</button>
+        <button mat-raised-button color="primary" (click)="tree.treeModel.focusDrillDown()">drill down</button>
+        <button mat-raised-button color="primary" (click)="tree.treeModel.focusDrillUp()">drill up</button>
+        <button mat-raised-button color="primary" (click)="customTemplateStringOptions.allowDrag = true">allowDrag</button>
+        <p></p>
+        <button mat-raised-button color="primary"
+          [disabled]="!tree.treeModel.getFocusedNode()"
+          (click)="tree.treeModel.getFocusedNode().toggleActivated()">
+          {{ tree.treeModel.getFocusedNode()?.isActive ? 'deactivate' : 'activate' }}
+        </button>
+        <button mat-raised-button color="primary"
+          [disabled]="!tree.treeModel.getFocusedNode()"
+          (click)="tree.treeModel.getFocusedNode().toggleExpanded()">
+          {{ tree.treeModel.getFocusedNode()?.isExpanded ? 'collapse' : 'expand' }}
+        </button>
+        <button mat-raised-button color="primary"
+          [disabled]="!tree.treeModel.getFocusedNode()"
+          (click)="tree.treeModel.getFocusedNode().blur()">
+          blur
+        </button>
+        <button mat-raised-button color="primary"
+          (click)="addNode(tree)">
+          Add Node
+        </button>
+        <button mat-raised-button color="primary"
+          (click)="activateSubSub(tree)">
+          Activate inner node
+        </button>
+        <button mat-raised-button color="primary"
+          (click)="tree.treeModel.expandAll()">
+          Expand All
+        </button>
+        <button mat-raised-button color="primary"
+          (click)="tree.treeModel.collapseAll()">
+          Collapse All
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

@@ -1,0 +1,103 @@
+<section>
+  <header>
+    <h3 class="primary-color">Sidenav</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Basic Use Case</mat-card-title>
+      <mat-card-content>
+        <mat-sidenav-container>
+          <mat-sidenav #start mode="side">
+            Start Side Drawer
+            <br>
+            <button mat-raised-button color="primary" (click)="start.close()">Close</button>
+            <br>
+            <button mat-raised-button color="primary" (click)="end.open()">Open End Side</button>
+            <br>
+            <button mat-raised-button color="primary"
+                    (click)="start.mode = (start.mode == 'push' ? 'over' : (start.mode == 'over' ? 'side' : 'push'))">
+              Toggle Mode
+            </button>
+            <div>Mode: {{start.mode}}</div>
+          </mat-sidenav>
+
+          <mat-sidenav #end align="end">
+            End Side Drawer
+            <br>
+            <button mat-raised-button color="primary" (click)="end.close()">Close</button>
+          </mat-sidenav>
+
+          <div>
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae, cum dolore enim itaque laborum
+              maiores modi molestias nulla perferendis quod, repellendus sunt tempore, ut voluptates? A architecto,
+              cumque deserunt dicta dignissimos dolores magni maiores minus, nisi non odio possimus tenetur veniam!
+              Aliquam cum nisi reiciendis ut vero! Accusamus assumenda blanditiis, consectetur dignissimos ducimus esse
+              eum facere fuga illum libero nam nesciunt quaerat, quam quas quia quod quos saepe sed, tenetur voluptas?
+              Dolorum eaque ex explicabo facere fugiat pariatur quas recusandae saepe similique unde! Earum hic impedit
+              laboriosam maxime minima pariatur placeat repellendus vero! Aspernatur consequuntur deserunt error natus,
+              officiis perspiciatis suscipit ut! Blanditiis dolor ipsum non voluptatibus. Aliquid, doloremque eius eos
+              iusto necessitatibus nihil nobis optio quam quasi qui quidem quisquam ratione reiciendis vel veniam! Ad,
+              adipisci aliquid at consequuntur dignissimos est iusto laboriosam molestias natus non nulla provident
+              quaerat, quis quod suscipit tempore tenetur ullam vel voluptates voluptatum?
+            </div>
+
+            <div>
+              <header>Sidenav</header>
+              <button mat-raised-button color="primary" (click)="start.toggle()">Toggle Start Side Drawer</button>
+              <button mat-raised-button color="primary" (click)="end.toggle()">Toggle End Side Drawer</button>
+            </div>
+          </div>
+        </mat-sidenav-container>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Sidenav Already Opened</mat-card-title>
+      <mat-card-content>
+        <mat-sidenav-container>
+          <mat-sidenav #start2 opened mode="over">
+            Drawer
+          </mat-sidenav>
+          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, blanditiis, consectetur eum facere id,
+            magnam maxime placeat quidem quod ratione repudiandae soluta veniam veritatis vero voluptas? Amet aperiam
+            esse molestiae placeat quam? Animi beatae doloribus dolorum illum laboriosam minus officia quia repellendus
+            sequi voluptatem! Beatae doloremque ex labore nostrum repellendus! Alias aliquam consequuntur, deleniti
+            dicta ea eius expedita incidunt iure laudantium maxime modi, natus quae quam quasi rem sapiente soluta
+            suscipit temporibus totam veritatis! Aperiam et libero nihil quasi quos sed sint velit vero. Ab ad
+            aspernatur blanditiis cumque iusto molestiae necessitatibus nobis numquam, obcaecati, odit rem vel vero
+            voluptatem!
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="start2.toggle()">Toggle Start Side Drawer</button>
+          </div>
+        </mat-sidenav-container>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Dynamic Alignment Sidenav</mat-card-title>
+      <mat-card-content>
+        <mat-sidenav-container>
+          <mat-sidenav #dynamicAlignSidenav1 mode="side" [align]="invert ? 'end' : 'start'">Start</mat-sidenav>
+          <mat-sidenav #dynamicAlignSidenav2 mode="side" [align]="invert ? 'start' : 'end'">End</mat-sidenav>
+
+          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequuntur cum dolorum esse
+            praesentium quia repellat, sapiente, soluta sunt temporibus tenetur ut? Accusantium aliquam aliquid animi
+            architecto aspernatur assumenda atque commodi corporis cupiditate debitis doloremque esse exercitationem
+            expedita, impedit, ipsam iusto labore magni, nam nisi nostrum optio quae quidem quo quod quos recusandae
+            unde? Accusantium, aliquid at beatae culpa deserunt dignissimos doloribus explicabo facere iure minus
+            molestias obcaecati porro saepe soluta totam ullam voluptatum? Aperiam, atque beatae consequuntur corporis
+            delectus doloribus eos facilis itaque laborum maiores maxime molestiae placeat quos tenetur unde, veritatis
+            voluptate voluptatibus. Amet dignissimos iure magni quae?
+          </div>
+          <button mat-raised-button color="primary"
+                  (click)="dynamicAlignSidenav1.toggle(); dynamicAlignSidenav2.toggle()">
+            Toggle sidenavs
+          </button>
+          <button mat-raised-button color="primary" (click)="invert = !invert">Change sides</button>
+        </mat-sidenav-container>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>
+
+

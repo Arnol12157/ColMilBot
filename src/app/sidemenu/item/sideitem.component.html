@@ -1,0 +1,19 @@
+<li [ngClass]="{close: closeState == 'close', open: closeState == 'open'}" class="menu-level-{{menuLevel}}">
+  <div class="item">
+    <a mat-button (click)="toggleState(children.children.length != 0)" [routerLink]="routerLinkUrl ? routerLinkUrl : location.path()"
+       routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" [class.no-route]="!routerLinkUrl">
+      <div class="icon">
+        <ng-content select="mat-icon"></ng-content>
+      </div>
+      <div class="text">{{title}}</div>
+      <div class="badge">
+        <ng-content select="td-notification-count" #badge></ng-content>
+      </div>
+      <i *ngIf="children.children.length != 0" class="material-icons mat-dark dropdown">arrow_drop_down</i>
+    </a>
+  </div>
+
+  <ul [@closeState]="closeState" class="children" #children>
+    <ng-content></ng-content>
+  </ul>
+</li>

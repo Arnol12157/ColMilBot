@@ -1,0 +1,52 @@
+@import "~@angular/material/theming";
+
+:host {
+  .left-sidenav {
+    padding-bottom: 50px;
+    padding-top: 64px;
+  }
+  .sidenav-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    div {
+      height: 100%;
+      img {
+        height: 100%;
+      }
+    }
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    p {
+      padding-left: 25px;
+    }
+  }
+  .logo {
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+  .wrapper {
+    padding: 20px 70px;
+    @media screen and (max-width: 960px) {
+      padding: 15px;
+    }
+    header {
+      padding: 0 10px;
+    }
+    &.wrapper-box {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  /deep/ .mat-drawer-content {
+    margin-left: 300px;
+  }
+}

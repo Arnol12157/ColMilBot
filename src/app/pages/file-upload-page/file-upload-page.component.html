@@ -1,0 +1,64 @@
+<section>
+  <header>
+    <h3 class="primary-color">File upload</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>File Input</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="row">
+          <mat-input-container tdFileDrop
+                              (click)="fileInput.inputElement.click()"
+                              (keyup.enter)="fileInput.inputElement.click()"
+                              (keyup.delete)="fileInput.clear()"
+                              (keyup.backspace)="fileInput.clear()" fxFlex>
+            <input matInput
+                   placeholder="select or drop files"
+                   [value]="files?.length ? (files?.length + ' files') : files?.name"
+                   readonly/>
+          </mat-input-container>
+          <button mat-icon-button *ngIf="files" (click)="fileInput.clear()" (keyup.enter)="fileInput.clear()">
+            <mat-icon class="icon-color">cancel</mat-icon>
+          </button>
+          <td-file-input class="push-left-sm push-right-sm" #fileInput [(ngModel)]="files" multiple>
+            <mat-icon>folder</mat-icon>
+            <span class="text-upper">Browse...</span>
+          </td-file-input>
+          <span>
+            <button mat-raised-button color="accent" [disabled]="!files" class="text-upper">Submit</button>
+          </span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>File Upload Button</mat-card-title>
+      <mat-card-content>
+        <td-file-upload #singleFileUpload>
+          <mat-icon>file_upload</mat-icon>
+          <span>{{ singleFileUpload.files?.name }}</span>
+          <ng-template td-file-input-label>
+            <mat-icon>attach_file</mat-icon>
+            <span>Choose a file...</span>
+          </ng-template>
+        </td-file-upload>
+      </mat-card-content>
+    </mat-card>
+    <mat-card>
+      <mat-card-title>Multiple File Upload Button</mat-card-title>
+      <mat-card-content>
+        <td-file-upload #fileMultipleUpload
+                        accept=".sql" defaultColor="primary" activeColor="accent" cancelColor="warn" multiple>
+          <mat-icon>file_upload</mat-icon>
+          <span>
+            {{ fileMultipleUpload.files?.name || fileMultipleUpload.files?.length }}
+            <span *ngIf="fileMultipleUpload.files?.length">files selected</span>
+          </span>
+          <ng-template td-file-input-label>
+            <mat-icon>attach_file</mat-icon>
+            <span>Choose multiple .sql files...</span>
+          </ng-template>
+        </td-file-upload>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

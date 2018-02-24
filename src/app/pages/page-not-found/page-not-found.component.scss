@@ -1,0 +1,25 @@
+@import "../../../styles/mixins";
+@import "../../../../node_modules/@angular/material/theming";
+
+section {
+  width: 100%;
+  height: 100%;
+  background: url('/assets/custom-pages/404-bg.jpg') no-repeat center;
+  background-size: cover;
+  color: #FFF;
+  article {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+  h1 {
+    @media screen and (min-width: 600px) {
+      font-size: 200px;
+    }
+  }
+  button {
+    margin-top: 120px;
+  }
+
+}

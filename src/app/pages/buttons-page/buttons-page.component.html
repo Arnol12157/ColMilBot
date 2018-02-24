@@ -1,0 +1,197 @@
+<section>
+  <header>
+    <h3 class="primary-color">Buttons</h3>
+  </header>
+  <article>
+    <div fxLayout="column" fxLayout.gt-sm="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="45">
+        <mat-card>
+          <mat-card-title>Raised button</mat-card-title>
+          <mat-card-content class="text-center">
+            <div>
+              <button mat-raised-button color="primary">Primary button</button>
+            </div>
+            <div>
+              <button mat-raised-button color="accent">Accent button</button>
+            </div>
+            <div>
+              <button mat-raised-button color="warn">Warn button</button>
+            </div>
+            <div>
+              <button mat-raised-button>Raised button</button>
+            </div>
+            <div>
+              <button disableRipple="true" mat-raised-button>No ripple effect</button>
+            </div>
+            <div>
+              <button mat-raised-button disabled>Disabled button</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Float button</mat-card-title>
+          <mat-card-content class="text-center">
+            <div>
+              <button mat-button color="primary">Primary button</button>
+            </div>
+            <div>
+              <button mat-button color="accent">Accent button</button>
+            </div>
+            <div>
+              <button mat-button color="warn">Warn button</button>
+            </div>
+            <div>
+              <button mat-button>Flat button</button>
+            </div>
+            <div>
+              <button disableRipple="true" mat-button>No ripple effect</button>
+            </div>
+            <div>
+              <button mat-button disabled>Disabled button</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Icon button</mat-card-title>
+          <mat-card-content class="text-center">
+            <div>
+              <button mat-icon-button color="primary">
+                <mat-icon>network_wifi</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-icon-button color="accent">
+                <mat-icon>cloud</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-icon-button color="warn">
+                <mat-icon>folder</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-icon-button>
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-icon-button disabled>
+                <mat-icon>place</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="55">
+        <mat-card>
+          <mat-card-title>Floating action button</mat-card-title>
+          <mat-card-content class="text-center">
+            <div>
+              <button mat-fab color="primary">
+                <mat-icon>check</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-fab>
+                <mat-icon>thumb_up</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-fab color="warn">
+                <mat-icon>call</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-fab disabled>
+                <mat-icon>home</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Mini FAB</mat-card-title>
+          <mat-card-content class="text-center">
+            <div>
+              <button mat-mini-fab color="primary">
+                <mat-icon>play_arrow</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-mini-fab>
+                <mat-icon>chat_bubble</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-mini-fab color="warn">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <div>
+              <button mat-mini-fab disabled>
+                <mat-icon>home</mat-icon>
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="text-center">
+          <mat-card-title>Button toggle</mat-card-title>
+          <mat-card-content>
+            <p>
+              <mat-checkbox (change)="isVertical = $event.checked">Show Button Toggles Vertical</mat-checkbox>
+            </p>
+            <p>
+              <mat-checkbox (change)="isDisabled = $event.checked">Disable Button Toggle Items</mat-checkbox>
+            </p>
+            <h6>Exclusive Selection</h6>
+            <div>
+              <mat-button-toggle-group name="alignment" [vertical]="isVertical">
+                <mat-button-toggle value="left">
+                  <mat-icon>format_align_left</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="center">
+                  <mat-icon>format_align_center</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="right">
+                  <mat-icon>format_align_right</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            <h6>Disabled Group</h6>
+            <div>
+              <mat-button-toggle-group name="checkbox" [vertical]="isVertical" [disabled]="true">
+                <mat-button-toggle value="bold">
+                  <mat-icon>format_bold</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="italic">
+                  <mat-icon>format_italic</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle value="underline">
+                  <mat-icon>format_underline</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            <h6>Multiple Selection</h6>
+            <div>
+              <mat-button-toggle-group multiple [vertical]="isVertical">
+                <mat-button-toggle>First</mat-button-toggle>
+                <mat-button-toggle>Second</mat-button-toggle>
+                <mat-button-toggle [disabled]="isDisabled">Third</mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+            <h6>Single Toggle</h6>
+            <mat-button-toggle>Yes</mat-button-toggle>
+            <h6>Dynamic Exclusive Selection</h6>
+            <div>
+              <mat-button-toggle-group [(ngModel)]="selected" [vertical]="isVertical">
+                <mat-button-toggle *ngFor="let item of options" [value]="item">
+                  {{item}}
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+              <p>Your selected: {{selected}}</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </article>
+</section>

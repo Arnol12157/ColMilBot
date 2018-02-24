@@ -1,0 +1,206 @@
+@import "./../../../styles/theme/color-mixins";
+:host {
+  letter-spacing: 0.03em;
+  /deep/ {
+    .mat-card {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      flex-basis: auto !important;
+    }
+    .mat-tab-labels .mat-tab-label {
+      min-width: 62px;
+      height: 36px;
+      line-height: 36px;
+      letter-spacing: 0.03em;
+      font-weight: 400;
+      font-size: 16px;
+      &:focus {
+        background-color: inherit;
+        opacity: 0.6;
+      }
+    }
+    .mat-tab-header {
+      border: none;
+    }
+    .mat-ink-bar {
+      background-color: rgba(#212121, 0.54);
+    }
+    .mat-list {
+      padding-top: 0;
+    }
+    .mat-list-item .mat-list-item-content {
+      padding: 0;
+    }
+    .mat-list-item .mat-list-avatar {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  h5 {
+    margin: 5px 0;
+  }
+  .area-chart {
+    height: 300px;
+  }
+  .statistics-card {
+    .area-chart-with-line {
+      height: 250px;
+    }
+  }
+  .clients-card {
+    max-height: 110px;
+    .mat-fab {
+      background: linear-gradient(-51deg, #3e9ace 0%, #03a9f4 100%);
+    }
+  }
+  .doughnut-chart {
+    height: 240px;
+  }
+  .notebook-card {
+    min-height: 220px;
+    box-sizing: border-box;
+    background: url("/assets/cards-demo/400300.png") no-repeat center;
+    background-size:cover;
+    .mat-card-footer {
+      height: 80px;
+      padding: 0 30px;
+      background-color: rgba(#212121, 0.87);
+      margin: 0;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .indicator-card {
+    padding-left: 0;
+    padding-right: 0;
+    .indicator-item {
+      p {
+        font-size: 30px;
+        font-weight: 300;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+      .indicator-chart {
+        height: 60px;
+        margin: 0 30px;
+      }
+      &:nth-child(1) {
+        p {
+          color: #03a9f4;
+        }
+      }
+      &:nth-child(2) {
+        p {
+          color: #f05a9d;
+        }
+      }
+      &:nth-child(3) {
+        p {
+          color: #73b6db;
+        }
+      }
+      &:nth-child(4) {
+        p {
+          color: #ff561f;
+        }
+      }
+    }
+  }
+  .rating-card {
+    .mat-divider:last-child {
+      display: none;
+    }
+    .val-wrap {
+      width: 200%;
+      .rating-val {
+        font-size: 14px;
+      }
+      /deep/{
+        .mat-progress-bar-buffer {
+          background-color: #dddddd;
+        }
+      }
+
+    }
+    /deep/ {
+      .mat-list-item-content {
+        height: 100px;
+      }
+      .mat-list-item {
+        &:nth-child(1) {
+          .mat-progress-bar-fill::after {
+            background-color: #03a9f4;
+          }
+        }
+        &:nth-child(3) {
+          .mat-progress-bar-fill::after {
+            background-color: #e44b8e;
+          }
+        }
+        &:nth-child(5) {
+          .mat-progress-bar-fill::after {
+            background-color: #3e9ace;
+          }
+        }
+      }
+    }
+  }
+  .todo-card {
+    background: linear-gradient(-54deg, #e44b8e 0%,#03a9f4 100%);
+    /deep/ {
+      .mat-checkbox-frame {
+        border-color: $white-87-opacity;
+      }
+      .mat-checkbox-checkmark {
+        fill: $white-87-opacity;
+      }
+      .mat-checkbox-checkmark-path {
+        stroke: $white-87-opacity !important;
+      }
+      .mat-checkbox-checked .mat-checkbox-background {
+        background-color: transparent;
+      }
+      .mat-list-item-content {
+        height: 54px;
+      }
+      .mat-input-placeholder {
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .mat-input-container {
+        width: 100%;
+        color: $white-87-opacity;
+        input {
+          font-weight: 300;
+          font-size: 16px;
+        }
+        .mat-input-underline {
+          background-color: rgba(255, 255, 255, 0.25);
+        }
+      }
+      .mat-divider {
+        border-top-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+    .title {
+      font-size: 14px;
+      font-weight: 300;
+      color: $white-87-opacity;
+    }
+    .text {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.5) !important;
+    }
+  }
+  .project-card {
+    /deep/ {
+      .mat-list .mat-list-item.mat-3-line .mat-list-item-content {
+        height: 75px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+@import '../../../styles/mixins';
+header .mat-subhead {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.avatar-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+}

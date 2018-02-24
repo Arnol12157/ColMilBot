@@ -1,0 +1,221 @@
+<section>
+  <header>
+    <h3 class="primary-color">Form elements</h3>
+  </header>
+  <article>
+    <div fxLayout="column" fxLayout.gt-sm="row">
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="100">
+        <mat-card>
+          <mat-card-title>Input</mat-card-title>
+          <mat-card-content>
+            <mat-input-container>
+              <textarea matInput placeholder="Default textarea"></textarea>
+            </mat-input-container>
+            <mat-input-container>
+              <textarea matInput matTextareaAutosize placeholder="Resizable textarea" minRows="5"></textarea>
+            </mat-input-container>
+            <mat-input-container>
+              <textarea matInput placeholder="Disabled textarea" disabled></textarea>
+            </mat-input-container>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px">
+              <mat-input-container fxFlex>
+                <input matInput placeholder="Default">
+              </mat-input-container>
+              <mat-input-container fxFlex>
+                <input matInput placeholder="Filled" value="Lorem">
+              </mat-input-container>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px">
+              <mat-input-container fxFlex hintLabel="Lorem">
+                <input matInput placeholder="With hint">
+              </mat-input-container>
+              <mat-input-container fxFlex>
+                <input matInput placeholder="Disabled" disabled>
+              </mat-input-container>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px">
+              <mat-input-container fxFlex floatPlaceholder="never">
+                <input matInput placeholder="Never float">
+              </mat-input-container>
+              <mat-input-container fxFlex floatPlaceholder="always">
+                <input matInput placeholder="Always float">
+              </mat-input-container>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px">
+              <mat-input-container fxFlex dividerColor="accent">
+                <input matInput placeholder="Accent">
+              </mat-input-container>
+              <mat-input-container fxFlex dividerColor="warn">
+                <input matInput placeholder="Warn">
+              </mat-input-container>
+            </div>
+            <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px">
+              <mat-input-container fxFlex>
+                <input matInput #postalCode2 maxlength="5" placeholder="Start hint">
+                <mat-hint align="start">{{postalCode2.value.length}} / 5</mat-hint>
+              </mat-input-container>
+              <mat-input-container fxFlex>
+                <input matInput #postalCode maxlength="5" placeholder="End hint">
+                <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+              </mat-input-container>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Autocomplete</mat-card-title>
+          <mat-card-content>
+            <mat-input-container>
+              <input matInput placeholder="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+            </mat-input-container>
+
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+                {{ state }}
+              </mat-option>
+            </mat-autocomplete>
+            <div><strong>Keyboard interaction:</strong></div>
+            <ul>
+              <li><kbd>DOWN_ARROW</kbd>: Focus next option</li>
+              <li><kbd>UP_ARROW</kbd>: Focus previous option</li>
+              <li><kbd>ENTER</kbd> or <kbd>SPACE</kbd>: Select focused item</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Slide toggle</mat-card-title>
+          <mat-card-content>
+            <div class="group">
+              <div><label>Color:</label></div>
+              <mat-radio-group [(ngModel)]="toggleColor" fxLayout="column" fxLayout.gt-md="row">
+                <mat-radio-button value="primary">Primary</mat-radio-button>
+                <mat-radio-button value="accent">Accent</mat-radio-button>
+                <mat-radio-button value="warn">Warn</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="group">
+              <mat-checkbox [(ngModel)]="toggleDisabled">Disabled</mat-checkbox>
+            </div>
+            <div>
+              <mat-slide-toggle [color]="toggleColor" [disabled]="toggleDisabled">
+                Slide toggle
+              </mat-slide-toggle>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="1 0 auto" fxFlex.gt-sm="100">
+        <mat-card>
+          <mat-card-title>Check box</mat-card-title>
+          <mat-card-content>
+            <div class="group" fxLayout="column" fxLayout.gt-md="row">
+              <mat-checkbox [checked]="true">Checked</mat-checkbox>
+              <mat-checkbox [indeterminate]="true">Indeterminate</mat-checkbox>
+              <mat-checkbox [checked]="false">Unchecked</mat-checkbox>
+            </div>
+            <div class="group" fxLayout="column" fxLayout.gt-md="row">
+              <mat-checkbox [labelPosition]="'after'">After</mat-checkbox>
+              <mat-checkbox [labelPosition]="'before'">Before</mat-checkbox>
+              <mat-checkbox disabled [checked]="true">Disabled</mat-checkbox>
+            </div>
+            <div class="group" fxLayout="column" fxLayout.gt-md="row">
+              <mat-checkbox [disableRipple]="true">No ripple</mat-checkbox>
+              <mat-checkbox color="primary">Primary</mat-checkbox>
+              <mat-checkbox color="warn">Warn</mat-checkbox>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Radio button</mat-card-title>
+          <mat-card-content>
+            <div class="group">
+              <mat-radio-group [(ngModel)]="radioGroupValue" fxLayout="column" fxLayout.gt-md="row">
+                <mat-radio-button [value]="'first'">First</mat-radio-button>
+                <mat-radio-button [value]="'second'">Second</mat-radio-button>
+                <mat-radio-button [value]="'third'">Third</mat-radio-button>
+                <mat-radio-button [value]="'disabled'" disabled>Disabled</mat-radio-button>
+              </mat-radio-group>
+              <div class="secondary-text-color"><em>Your option is
+                <mark>{{radioGroupValue}}</mark>
+              </em></div>
+            </div>
+            <div class="group">
+              <mat-radio-group [(ngModel)]="radioGroupValue2" fxLayout="column" fxLayout.gt-md="row">
+                <mat-radio-button [value]="'before'" [labelPosition]="'before'">Before</mat-radio-button>
+                <mat-radio-button [value]="'after'" [labelPosition]="'after'">After</mat-radio-button>
+                <mat-radio-button [value]="'no ripple'" disableRipple>No ripple</mat-radio-button>
+              </mat-radio-group>
+              <div class="secondary-text-color"><em>Your option is
+                <mark>{{radioGroupValue2}}</mark>
+              </em></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Select</mat-card-title>
+          <mat-card-content>
+            <mat-select placeholder="Select value" [(ngModel)]="selectValue">
+              <mat-option [value]="'first'">First</mat-option>
+              <mat-option [value]="'second'">Second</mat-option>
+              <mat-option [value]="'third'">Third</mat-option>
+            </mat-select>
+            <p class="secondary-text-color"><em>Selected value:
+              <mark *ngIf="selectValue">{{selectValue}}</mark>
+            </em></p>
+            <strong>Keyboard interaction:</strong>
+            <ul>
+              <li><kbd>DOWN_ARROW</kbd>: Focus next option</li>
+              <li><kbd>UP_ARROW</kbd>: Focus previous option</li>
+              <li><kbd>ENTER</kbd> or <kbd>SPACE</kbd>: Select focused item</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-title>Slider</mat-card-title>
+          <mat-card-content>
+            <div class="group">
+              <mat-input-container>
+                <input matInput type="number" placeholder="Value" [(ngModel)]="sliderValue">
+              </mat-input-container>
+              <mat-input-container>
+                <input matInput type="number" placeholder="Min value" [(ngModel)]="sliderMin">
+              </mat-input-container>
+              <mat-input-container>
+                <input matInput type="number" placeholder="Max value" [(ngModel)]="sliderMax">
+              </mat-input-container>
+              <mat-input-container>
+                <input matInput type="number" placeholder="Step size" [(ngModel)]="sliderStep">
+              </mat-input-container>
+            </div>
+
+            <div class="group">
+              <mat-checkbox [(ngModel)]="sliderShowTicks">Show ticks</mat-checkbox>
+              <mat-checkbox [(ngModel)]="sliderAutoTicks" *ngIf="sliderShowTicks">
+                Auto ticks
+              </mat-checkbox>
+              <mat-input-container *ngIf="sliderShowTicks && !sliderAutoTicks">
+                <input matInput type="number" placeholder="Tick interval" [(ngModel)]="sliderTickInterval">
+              </mat-input-container>
+            </div>
+
+            <div class="group">
+              <mat-checkbox [(ngModel)]="sliderThumbLabel">Show thumb label</mat-checkbox>
+            </div>
+
+            <div class="group">
+              <mat-checkbox [(ngModel)]="sliderVertical">Vertical</mat-checkbox>
+              <mat-checkbox [(ngModel)]="sliderInvert">Inverted</mat-checkbox>
+            </div>
+
+            <div class="group">
+              <mat-checkbox [(ngModel)]="sliderDisabled">Disabled</mat-checkbox>
+            </div>
+
+            <mat-slider [disabled]="sliderDisabled" [invert]="sliderInvert" [max]="sliderMax" [min]="sliderMin" [step]="sliderStep"
+                       [thumb-label]="sliderThumbLabel" [tick-interval]="sliderTickInterval" [value]="sliderValue" [vertical]="sliderVertical">
+            </mat-slider>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </article>
+</section>

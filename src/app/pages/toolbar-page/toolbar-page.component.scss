@@ -1,0 +1,9 @@
+.mat-icon {
+  padding: 0 14px;
+  @media screen and (max-width: 600px) {
+    padding: 5px;
+  }
+}
+.mat-toolbar {
+  overflow: hidden;
+}

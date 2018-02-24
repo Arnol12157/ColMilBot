@@ -1,0 +1,22 @@
+<section>
+  <header>
+    <h3 class="primary-color">Snackbar</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-content fxLayout="column" fxLayout.gt-sm="row">
+        <mat-input-container>
+          <input matInput value="Message saved" placeholder="Message" #message>
+        </mat-input-container>
+
+        <mat-input-container>
+          <input matInput value="Cancel" placeholder="Action" #action>
+        </mat-input-container>
+        <div>
+          <button mat-raised-button color="primary" (click)="openSnackBar(message.value, action.value)">Show snack-bar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>

@@ -1,0 +1,115 @@
+@import "../_variables";
+@import '../../../node_modules/@angular/material/theming';
+
+/************************************** COLOR FUNCTION **************************************/
+@function primary-color($theme) {
+  @return mat-color(map_get($theme, primary), default);
+}
+
+@function primary-color-dark($theme) {
+  @return mat-color(map_get($theme, primary), darker);
+}
+
+@function primary-color-light($theme) {
+  @return mat-color(map_get($theme, primary), lighter);
+}
+
+@function primary-color-contrast($theme) {
+  @return mat-contrast(map_get($theme, primary), 500);
+}
+
+@function accent-color($theme) {
+  @return map_get(map_get($theme, accent), default);
+}
+
+@function primary-text-color($theme) {
+  @return map-get(map-get($theme, foreground), text);
+}
+
+@function secondary-text-color($theme) {
+  @return map-get(map-get($theme, foreground), secondary-text);
+}
+
+@function background-color($theme) {
+  @return map-get(map-get($theme, background), background);
+}
+
+@function background-color-2($theme) {
+  @return map-get(map-get($theme, background), background-2);
+}
+
+@function background-color-3($theme) {
+  @return map-get(map-get($theme, background), background-3);
+}
+
+@function background-color-4($theme) {
+  @return map-get(map-get($theme, background), background-4);
+}
+
+@function warn-color($theme) {
+  @return map_get(map_get($theme, warn), default);
+}
+
+@function icons-color($theme) {
+  @return map-get(map-get($theme, foreground), icons);
+}
+
+@function primary-contrast-color($theme) {
+  @return mat-contrast(map_get($theme, primary), 500)
+}
+
+@mixin all-colors($theme) {
+  /************************************** COLOR CLASSES **************************************/
+  .primary-color-dark {
+    color: primary-color-dark($theme);
+  }
+  .primary-color {
+    color: primary-color($theme);
+  }
+  .primary-color-light {
+    color: primary-color-light($theme);
+  }
+  .primary-color-contrast {
+    color: primary-color-contrast($theme);
+  }
+  .accent-color {
+    color: accent-color($theme);
+  }
+  .primary-text-color {
+    color: primary-text-color($theme);
+  }
+  .secondary-text-color {
+    color: secondary-text-color($theme);
+  }
+  .warn-color {
+    color: warn-color($theme);
+  }
+  .icon-color {
+    color: icons-color($theme);
+  }
+  .white-text-color {
+    color: $white-87-opacity;
+  }
+  .primary-contrast-color {
+    color: primary-contrast-color($theme);
+  }
+
+  /************************************** BACKGROUND COLOR CLASSES **************************************/
+  .primary-background-color {
+    background-color: primary-color($theme);
+  }
+  .accent-background-color {
+    background-color: accent-color($theme);
+  }
+  .warn-background-color {
+    background-color: warn-color($theme);
+  }
+  .primary-light-background-color {
+    background-color: primary-color-light($theme);
+  }
+  .background-color-4 {
+    background-color: background-color-4($theme);
+  }
+}
+
+
