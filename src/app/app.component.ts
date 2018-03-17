@@ -3,6 +3,10 @@ import {MatIconRegistry} from '@angular/material';
 import {NavigationEnd, Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
+
 declare let ga: any;
 
 @Component({

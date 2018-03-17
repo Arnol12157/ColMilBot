@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, HostBinding, HostListener, OnInit} from '@angular/core';
 import {ResizeService} from '../../resize/resize.service';
 import {routerAnimation} from '../../utils/page.animation';
+import { AuthService } from '../../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-page',
@@ -39,11 +41,12 @@ export class MainPageComponent implements OnInit, AfterViewInit {
   ];
 
 
-  constructor(public resizeService: ResizeService) {
+  constructor(private router: Router, public  authService: AuthService,public resizeService: ResizeService) {
     this.onResize();
   }
 
   ngOnInit() {
+
   }
 
   ngAfterViewInit(): void {

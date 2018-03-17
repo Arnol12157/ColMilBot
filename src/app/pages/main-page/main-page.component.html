@@ -26,7 +26,7 @@
           </px-gdn-sideitem>
         </px-gdn-sideitem>
         <px-gdn-sideitem title="Usuarios">
-          <px-gdn-sideitem title="Crear usuario">
+          <px-gdn-sideitem title="Crear usuario" [routerLinkUrl]="'/usuarios/crear'">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
           <px-gdn-sideitem title="Gestion usuarios">
@@ -47,9 +47,10 @@
         <px-gdn-sideitem title="ChatBot" [routerLinkUrl]="'dashboard'">
           <mat-icon>dashboard</mat-icon>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="Calendario" [routerLinkUrl]="'dashboard'">
-          <mat-icon>dashboard</mat-icon>
-        </px-gdn-sideitem>
+        <iframe
+                height="300"
+                src="https://console.dialogflow.com/api-client/demo/embedded/f398fe32-94b8-4020-a0fe-5e4c08398eeb">
+        </iframe>
         <!-- FIN MENU PAME -->
 
         <px-gdn-sideitem title="Dashboard" [routerLinkUrl]="'dashboard'">
@@ -283,7 +284,7 @@
     </perfect-scrollbar>
     <footer class="secondary-text-color">
       <mat-divider></mat-divider>
-      <p>PixelGarden © All Rights Reserved</p>
+      <p>ColMil © Todos los derechos reservados</p>
     </footer>
   </mat-sidenav>
   <mat-sidenav #optionsnav mode="over" align="end">

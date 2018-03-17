@@ -1,0 +1,18 @@
+{
+  "short_name": "ColMilBot",
+  "name": "ColMilBot Super",
+  "start_url": "/",
+
+  "theme_color": "#f48c5b",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/logo/logo-text-black.png",
+      "sizes": "160x80",
+      "type": "image/png"
+    }
+  ]
+}

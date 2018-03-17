@@ -104,6 +104,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import {AuthService} from './auth/auth.service';
+import {AuthGuard} from './auth/auth.guard';
+import { GestionUsuariosPageComponent } from './pages/gestion-usuarios-page/gestion-usuarios-page.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 
@@ -133,7 +135,8 @@ export function createTranslateLoader(http: HttpClient) {
     CartPageComponent,
     ProductPageComponent,
     PortfolioPageComponent,
-    MultiLanguagePageComponent
+    MultiLanguagePageComponent,
+    GestionUsuariosPageComponent
   ],
   entryComponents: [
     DialogExampleComponent, CartButtonComponent
@@ -194,7 +197,7 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule,
     AppRoutesModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     AngularFireStorageModule
   ],
@@ -202,7 +205,8 @@ export function createTranslateLoader(http: HttpClient) {
     provide: PERFECT_SCROLLBAR_CONFIG,
     useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
   },
-      AuthService
+      AuthService,
+      AuthGuard
   ],
   bootstrap: [AppComponent]
 })

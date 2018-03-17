@@ -43,8 +43,15 @@ import {PageNotFoundComponent} from '../pages/page-not-found/page-not-found.comp
 import {LoginPageComponent} from '../pages/login-page/login-page.component';
 import {SignUpPageComponent} from '../pages/sign-up-page/sign-up-page.component';
 import {MultiLanguagePageComponent} from '../pages/multi-language-page/multi-language-page.component';
+import { GestionUsuariosPageComponent } from '../pages/gestion-usuarios-page/gestion-usuarios-page.component';
+import { AuthGuard } from '../auth/auth.guard';
 
 const APP_ROUTES: Routes = [
+    {path: 'usuarios', component: MainPageComponent, children: [
+          {path: 'crear', component: FormWizardPageComponent, canActivate: [AuthGuard]},
+          {path: 'gestion', component: GestionUsuariosPageComponent, canActivate: [AuthGuard]}
+        ]
+    },
   {
     path: 'main', component: MainPageComponent, children: [
     {path: 'dashboard', component: DashboardPageComponent},

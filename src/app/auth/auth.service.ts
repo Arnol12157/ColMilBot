@@ -21,6 +21,14 @@ export class AuthService {
         return (this.authState !== null) ? this.authState.uid : ''
     }
 
+    get currentUserObservable(): any {
+        return this.afAuth.auth;
+    }
+
+    get authenticated(): boolean {
+        return this.authState !== null;
+    }
+
     get currentUserName(): string {
         return this.authState['email']
     }
