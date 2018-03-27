@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="public_html/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="public_html/javascript/jquery-ui-1.9.2.custom.js"></script>
+    <script type="text/javascript" src="public_html/javascript/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="public_html/javascript/angular.min.js"></script>
+    <script type="text/javascript" src="public_html/javascript/eliminateBuyoutProcess.js"></script>
+    <link href="public_html/style/bootstrap.min.css?v=2.0" rel="stylesheet" type="text/css"/>
+    <link href="public_html/style/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div>
+      asdasdas asdasd asddas 
+    </div>
+  </body>
+</html>
