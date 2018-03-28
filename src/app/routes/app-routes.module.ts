@@ -45,11 +45,18 @@ import {SignUpPageComponent} from '../pages/sign-up-page/sign-up-page.component'
 import {MultiLanguagePageComponent} from '../pages/multi-language-page/multi-language-page.component';
 import { GestionUsuariosPageComponent } from '../pages/gestion-usuarios-page/gestion-usuarios-page.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { RegistroNoticiaComponent } from '../pages/registro-noticia/registro-noticia.component';
+import { GestionNoticiaComponent } from '../pages/gestion-noticia/gestion-noticia.component';
 
 const APP_ROUTES: Routes = [
     {path: 'usuarios', component: MainPageComponent, children: [
           {path: 'crear', component: FormWizardPageComponent, canActivate: [AuthGuard]},
           {path: 'gestion', component: GestionUsuariosPageComponent, canActivate: [AuthGuard]}
+        ]
+    },
+    {path: 'noticias', component: MainPageComponent, children: [
+            {path: 'crear', component: RegistroNoticiaComponent, canActivate: [AuthGuard]},
+            {path: 'gestion', component: GestionNoticiaComponent, canActivate: [AuthGuard]}
         ]
     },
   {
