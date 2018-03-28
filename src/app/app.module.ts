@@ -106,6 +106,8 @@ import { environment } from '../environments/environment';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth.guard';
 import { GestionUsuariosPageComponent } from './pages/gestion-usuarios-page/gestion-usuarios-page.component';
+import { GestionNoticiaComponent } from './pages/gestion-noticia/gestion-noticia.component';
+import { RegistroNoticiaComponent } from './pages/registro-noticia/registro-noticia.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 
@@ -136,7 +138,9 @@ export function createTranslateLoader(http: HttpClient) {
     ProductPageComponent,
     PortfolioPageComponent,
     MultiLanguagePageComponent,
-    GestionUsuariosPageComponent
+    GestionUsuariosPageComponent,
+    GestionNoticiaComponent,
+    RegistroNoticiaComponent
   ],
   entryComponents: [
     DialogExampleComponent, CartButtonComponent

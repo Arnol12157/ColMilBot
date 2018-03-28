@@ -1,0 +1,74 @@
+<section>
+<header>
+  <h3 class="primary-color">Registro de Noticias</h3>
+</header>
+<article>
+  <mat-card>
+    <mat-card-content>
+      <mat-tab-group #tabGroup dynamicHeight="true">
+        <mat-tab label="Paso 1">
+          <h5>Informacion de la nueva noticia</h5>
+          <form #loginForm="ngForm">
+            <div>
+
+              <div fxLayout="column" fxFlex="100" fxFlex.gt-sm="50" fxFlex.gt-md="25">
+                <mat-input-container [dividerColor]="!titulo.valid && !titulo.pristine ? 'warn' : 'primary'">
+                  <input type="text" matInput placeholder="titulo" name="titulo" required ngModel
+                         #titulo="ngModel">
+                  <mat-hint *ngIf="!titulo.valid && !titulo.pristine" class="warn-color">Este campo es requerido
+                  </mat-hint>
+                </mat-input-container>
+                <mat-input-container [dividerColor]="!descripcion.valid && !descripcion.pristine ? 'warn' : 'primary'">
+                  <input type="text" matInput placeholder="descripcion" name="descripcion" required ngModel
+                         #descripcion="ngModel">
+                  <mat-hint *ngIf="!descripcion.valid && !descripcion.pristine" class="warn-color">Este campo es requerido
+                  </mat-hint>
+                </mat-input-container>
+                <mat-input-container [dividerColor]="!imagen.valid && !imagen.pristine ? 'warn' : 'primary'">
+                  <input type="text" required matInput placeholder="imagen" name="imagen" ngModel
+                         #imagen="ngModel">
+
+                  <mat-hint *ngIf="!imagen.valid && !imagen.pristine" class="warn-color">Este campo es requerido
+                  </mat-hint>
+                </mat-input-container>
+                <mat-input-container
+                        [dividerColor]="!id_usuario.valid && !id_usuario.pristine ? 'warn' : 'primary'">
+                  <input type="id_usuario" required matInput placeholder="id_usuario" name="id_usuario" ngModel
+                         #id_usuario="ngModel">
+                  <mat-hint *ngIf="!id_usuario.valid && !id_usuario.pristine" class="warn-color">Este campo es requerido
+                  </mat-hint>
+                </mat-input-container>
+              </div>
+            </div>
+            <div>
+              <button mat-raised-button color="primary" (click)="tabGroup.selectedIndex=1"
+                      [disabled]="!loginForm.valid">Siguiente
+              </button>
+            </div>
+          </form>
+        </mat-tab>
+
+        <mat-tab label="Paso 2" [disabled]="!loginForm.valid">
+          <h5>Confirmacion de datos</h5>
+          <mat-list>
+            <mat-list-item>
+              <h4 matLine>Titulo</h4>
+              <p matLine><em>{{titulo.value}}</em></p>
+            </mat-list-item>
+            <mat-list-item>
+              <h4 matLine>Descripcion</h4>
+              <p matLine><em>{{descripcion.value}}</em></p>
+            </mat-list-item>
+            <mat-list-item *ngIf="imagen.value">
+              <h4 matLine>Imagen</h4>
+              <p matLine><em>{{imagen.value}}</em></p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+          </mat-list>
+          <button mat-raised-button color="primary" (click)="onRegisterNewNoticias(loginForm)">Confirmar</button>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</article>
+</section>
