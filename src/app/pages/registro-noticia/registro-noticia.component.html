@@ -24,20 +24,6 @@
                   <mat-hint *ngIf="!descripcion.valid && !descripcion.pristine" class="warn-color">Este campo es requerido
                   </mat-hint>
                 </mat-input-container>
-                <mat-input-container [dividerColor]="!imagen.valid && !imagen.pristine ? 'warn' : 'primary'">
-                  <input type="text" required matInput placeholder="imagen" name="imagen" ngModel
-                         #imagen="ngModel">
-
-                  <mat-hint *ngIf="!imagen.valid && !imagen.pristine" class="warn-color">Este campo es requerido
-                  </mat-hint>
-                </mat-input-container>
-                <mat-input-container
-                        [dividerColor]="!id_usuario.valid && !id_usuario.pristine ? 'warn' : 'primary'">
-                  <input type="id_usuario" required matInput placeholder="id_usuario" name="id_usuario" ngModel
-                         #id_usuario="ngModel">
-                  <mat-hint *ngIf="!id_usuario.valid && !id_usuario.pristine" class="warn-color">Este campo es requerido
-                  </mat-hint>
-                </mat-input-container>
               </div>
             </div>
             <div>
@@ -58,10 +44,6 @@
             <mat-list-item>
               <h4 matLine>Descripcion</h4>
               <p matLine><em>{{descripcion.value}}</em></p>
-            </mat-list-item>
-            <mat-list-item *ngIf="imagen.value">
-              <h4 matLine>Imagen</h4>
-              <p matLine><em>{{imagen.value}}</em></p>
             </mat-list-item>
             <mat-divider></mat-divider>
           </mat-list>

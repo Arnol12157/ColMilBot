@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
-export interface noticias { titulo: string; descripcion: string; imagen: string; id_usuario: string}
+export interface Notice { titulo: string; descripcion: string; email_usuario: string}
 export interface Module { titulo: string; childrens: any; }
 
 @Component({
@@ -16,7 +16,7 @@ export interface Module { titulo: string; childrens: any; }
 })
 export class RegistroNoticiaComponent implements OnInit {
 
-    private noticiasCollection: AngularFirestoreCollection<noticias>;
+    private noticiasCollection: AngularFirestoreCollection<Notice>;
     private modulesCollection: AngularFirestoreCollection<Module>;
     moduleItems: Observable<Module[]>;
     checkedList: string[] = [];
@@ -24,24 +24,23 @@ export class RegistroNoticiaComponent implements OnInit {
     // Add router animation
     @HostBinding('@routerAnimation') routerAnimation = true;
     constructor(private router: Router, public  authService: AuthService, private readonly afs: AngularFirestore) {
-        this.noticiasCollection = afs.collection<noticias>('noticias');
+        this.noticiasCollection = afs.collection<Notice>('noticias');
         this.modulesCollection = afs.collection<Module>('modulos');
         this.moduleItems = this.modulesCollection.valueChanges();
     }
 
-    addItem( titulo: string, descripcion: string, imagen: string, id_usuario: string){
+    addItem( titulo: string, descripcion: string, email_usuario: string){
     //let list: string[] = this.checkedList;
-    const newNoticias : noticias = { titulo, descripcion, imagen, id_usuario};
+    const newNoticias : Notice = { titulo, descripcion, email_usuario};
     this.noticiasCollection.add(newNoticias);
     }
 
     onRegisterNewNoticias(form: NgForm): void {
         let titulo = form.form.value.titulo;
         let descripcion = form.form.value.descripcion;
-        let imagen = form.form.value.imagen;
-        let id_usuario = form.form.value.id_usuario;
+        let email_usuario=this.authService.currentUserEmail;
 
-        this.addItem(titulo, descripcion, imagen, id_usuario);
+        this.addItem(titulo, descripcion, email_usuario);
 
     }
 

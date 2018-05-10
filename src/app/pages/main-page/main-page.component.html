@@ -33,24 +33,23 @@
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="Estadisticas">
+        <px-gdn-sideitem title="Interaccion">
           <px-gdn-sideitem title="Visitas a la pagina">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
           <px-gdn-sideitem title="Vistas de noticias">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
-          <px-gdn-sideitem title="Uso de usuarios">
+          <px-gdn-sideitem title="Uso de usuarios" [routerLinkUrl]="'/interaccion/presencia-usuarios'">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="ChatBot" [routerLinkUrl]="'dashboard'">
+        <px-gdn-sideitem title="ChatBot" [routerLinkUrl]="'/chatbot/gestion'">
           <mat-icon>dashboard</mat-icon>
         </px-gdn-sideitem>
-        <iframe
-                height="300"
-                src="https://console.dialogflow.com/api-client/demo/embedded/f398fe32-94b8-4020-a0fe-5e4c08398eeb">
-        </iframe>
+        <app-chat-dialog>
+
+        </app-chat-dialog>
         <!-- FIN MENU PAME -->
 
         <px-gdn-sideitem title="Dashboard" [routerLinkUrl]="'dashboard'">

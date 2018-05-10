@@ -52,6 +52,7 @@ export class FormWizardPageComponent implements OnInit {
         } else {
             this.checkedList.splice(this.checkedList.indexOf(option.nombre),1)
         }
+        console.log(this.authService.currentUserEmail);
     }
 
   ngOnInit() {

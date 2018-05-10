@@ -1,4 +1,3 @@
-
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {
     IPageChangeEvent,
@@ -12,29 +11,27 @@ import { AuthService } from '../../auth/auth.service';
 import {Router} from '@angular/router';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 import {Observable} from 'rxjs/Observable';
-export interface Notice { titulo: string; descripcion: string; id_usuario: string}
+export interface User { nombre: string; apellido: string; telefono: number; email: string; pass: string; perms: string[]}
 
 const NUMBER_FORMAT: (v: any) => any = (v: number) => v;
 const DECIMAL_FORMAT: (v: any) => any = (v: number) => v.toFixed(2);
 
 @Component({
-  selector: 'app-gestion-noticia',
-  templateUrl: './gestion-noticia.component.html',
-  styleUrls: ['./gestion-noticia.component.scss']
+  selector: 'app-presencia-usuarios-page',
+  templateUrl: './presencia-usuarios-page.component.html',
+  styleUrls: ['./presencia-usuarios-page.component.scss']
 })
-export class GestionNoticiaComponent implements OnInit {
-
-
-    private noticiasCollection: AngularFirestoreCollection<Notice>;
-    itemsNoticias: Observable<Notice[]>;
+export class PresenciaUsuariosPageComponent implements OnInit {
+    private usersCollection: AngularFirestoreCollection<User>;
+    itemsUsers: Observable<User[]>;
     // Add router animation
     @HostBinding('@routerAnimation') routerAnimation = true;
     // Table columns model
     columns: ITdDataTableColumn[] = [
-        {name: 'titulo', label: 'titulo', sortable: true},
-        {name: 'descripcion', label: 'descripcion'},
-        {name: 'email_usuario', label: 'usuario', sortable: true},
-
+        {name: 'nombre', label: 'Nombre', sortable: true},
+        {name: 'apellido', label: 'Apellido'},
+        {name: 'email', label: 'Email', sortable: true},
+        {name: 'ultima_conexion', label: 'Ultima conexion'},
     ];
     // Table data
     data: any[] = [];
@@ -45,15 +42,15 @@ export class GestionNoticiaComponent implements OnInit {
     fromRow = 1;
     currentPage = 1;
     pageSize = 5;
-    sortBy = 'titulo';
+    sortBy = 'nombre';
     sortOrder: TdDataTableSortingOrder = TdDataTableSortingOrder.Descending;
-     //sirve para la parte de noticia con farebase
+
     constructor(private _dataTableService: TdDataTableService, private router: Router, public  authService: AuthService,private readonly afs: AngularFirestore) {
-        this.noticiasCollection = afs.collection('noticias');
-        this.itemsNoticias = this.noticiasCollection.valueChanges();
-        this.itemsNoticias.subscribe((noticias) => {
-            this.filteredData=noticias;
-            this.data=noticias;
+        this.usersCollection = afs.collection('usuarios');
+        this.itemsUsers = this.usersCollection.valueChanges();
+        this.itemsUsers.subscribe((users) => {
+            this.filteredData=users;
+            this.data=users;
         });
     }
 
@@ -89,4 +86,5 @@ export class GestionNoticiaComponent implements OnInit {
         newData = this._dataTableService.pageData(newData, this.fromRow, this.currentPage * this.pageSize);
         this.filteredData = newData;
     }
+
 }

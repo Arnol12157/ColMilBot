@@ -1,0 +1,22 @@
+<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="stretch">
+  <div fxFlex="1 0 auto" fxFlex.gt-sm="50">
+    <h5>ColMilBot</h5>
+    <perfect-scrollbar class="list-container">
+      <ng-container *ngFor="let message of messages | async">
+        <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',
+                                        'to':   message.sentBy === 'user' }">
+          {{ message.content }}
+        </div>
+      </ng-container>
+    </perfect-scrollbar>
+    <div fxLayout="row" fxLayoutGap="20px" fxLayoutGap.gt-sm="30px" style="display: inline-flex; margin-top: 5px">
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" placeholder="Tu mensaje">
+      </mat-form-field>
+      <mat-chip-list>
+        <mat-chip color="primary" selected="true" (click)="sendMessage()">Enviar</mat-chip>
+      </mat-chip-list>
+    </div>
+
+  </div>
+</div>

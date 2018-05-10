@@ -12,5 +12,8 @@ export const environment = {
         projectId: 'colmil-16806',
         storageBucket: 'colmil-16806.appspot.com>',
         messagingSenderId: '491651044446'
+    },
+    dialogflow: {
+        angularBot: '9213cf1abc66467c8c9f085f0e309afb'
     }
 };

@@ -47,18 +47,24 @@ import { GestionUsuariosPageComponent } from '../pages/gestion-usuarios-page/ges
 import { AuthGuard } from '../auth/auth.guard';
 import { RegistroNoticiaComponent } from '../pages/registro-noticia/registro-noticia.component';
 import { GestionNoticiaComponent } from '../pages/gestion-noticia/gestion-noticia.component';
+import { PresenciaUsuariosPageComponent } from '../pages/presencia-usuarios-page/presencia-usuarios-page.component';
+import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
 
 const APP_ROUTES: Routes = [
     {path: 'usuarios', component: MainPageComponent, children: [
           {path: 'crear', component: FormWizardPageComponent, canActivate: [AuthGuard]},
           {path: 'gestion', component: GestionUsuariosPageComponent, canActivate: [AuthGuard]}
-        ]
-    },
+    ]},
     {path: 'noticias', component: MainPageComponent, children: [
             {path: 'crear', component: RegistroNoticiaComponent, canActivate: [AuthGuard]},
             {path: 'gestion', component: GestionNoticiaComponent, canActivate: [AuthGuard]}
-        ]
-    },
+    ]},
+    {path: 'interaccion', component: MainPageComponent, children: [
+        {path: 'presencia-usuarios', component: PresenciaUsuariosPageComponent, canActivate: [AuthGuard]}
+    ]},
+    {path: 'chatbot', component: MainPageComponent, children: [
+        {path: 'gestion', component: ChatDialogComponent, canActivate: [AuthGuard]}
+    ]},
   {
     path: 'main', component: MainPageComponent, children: [
     {path: 'dashboard', component: DashboardPageComponent},
