@@ -110,6 +110,9 @@ import { GestionNoticiaComponent } from './pages/gestion-noticia/gestion-noticia
 import { RegistroNoticiaComponent } from './pages/registro-noticia/registro-noticia.component';
 import { PresenciaUsuariosPageComponent } from './pages/presencia-usuarios-page/presencia-usuarios-page.component';
 import { ChatModule } from './chat/chat.module';
+import { ChartChatbotComponent } from './pages/chart-chatbot/chart-chatbot.component';
+import { ChartIntentsComponent } from './pages/chart-intents/chart-intents.component';
+import { GestionChatbotComponent } from './pages/gestion-chatbot/gestion-chatbot.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 
@@ -143,7 +146,10 @@ export function createTranslateLoader(http: HttpClient) {
     GestionUsuariosPageComponent,
     GestionNoticiaComponent,
     RegistroNoticiaComponent,
-    PresenciaUsuariosPageComponent
+    PresenciaUsuariosPageComponent,
+    ChartChatbotComponent,
+    ChartIntentsComponent,
+    GestionChatbotComponent
   ],
   entryComponents: [
     DialogExampleComponent, CartButtonComponent

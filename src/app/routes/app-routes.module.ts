@@ -49,6 +49,8 @@ import { RegistroNoticiaComponent } from '../pages/registro-noticia/registro-not
 import { GestionNoticiaComponent } from '../pages/gestion-noticia/gestion-noticia.component';
 import { PresenciaUsuariosPageComponent } from '../pages/presencia-usuarios-page/presencia-usuarios-page.component';
 import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
+import { ChartChatbotComponent } from '../pages/chart-chatbot/chart-chatbot.component';
+import { GestionChatbotComponent } from '../pages/gestion-chatbot/gestion-chatbot.component';
 
 const APP_ROUTES: Routes = [
     {path: 'usuarios', component: MainPageComponent, children: [
@@ -63,7 +65,7 @@ const APP_ROUTES: Routes = [
         {path: 'presencia-usuarios', component: PresenciaUsuariosPageComponent, canActivate: [AuthGuard]}
     ]},
     {path: 'chatbot', component: MainPageComponent, children: [
-        {path: 'gestion', component: ChatDialogComponent, canActivate: [AuthGuard]}
+        {path: 'gestion', component: GestionChatbotComponent, canActivate: [AuthGuard]}
     ]},
   {
     path: 'main', component: MainPageComponent, children: [

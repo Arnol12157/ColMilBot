@@ -1,0 +1,14 @@
+<section>
+  <header>
+    <h3 class="primary-color">Intents</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Grafica de los intents mas consultados y respondidos por el chatbot</mat-card-title>
+      <mat-card-content>
+        <div echarts [options]="lineOption" (chartInit)="chartInstances.push($event)" class="chart"></div>
+      </mat-card-content>
+    </mat-card>
+
+  </article>
+</section>

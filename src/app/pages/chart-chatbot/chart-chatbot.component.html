@@ -1,0 +1,13 @@
+<section>
+  <header>
+    <h3 class="primary-color">Uso del ChatBot</h3>
+  </header>
+  <article>
+    <mat-card>
+      <mat-card-title>Grafica de los preguntas respondidas por el chatbot durante siete dias separadas por horas</mat-card-title>
+      <mat-card-content>
+        <div echarts [options]="heatmapOption" (chartInit)="chartInstances.push($event)" class="chart"></div>
+      </mat-card-content>
+    </mat-card>
+  </article>
+</section>
