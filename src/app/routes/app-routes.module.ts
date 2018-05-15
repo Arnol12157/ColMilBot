@@ -51,6 +51,13 @@ import { PresenciaUsuariosPageComponent } from '../pages/presencia-usuarios-page
 import { ChatDialogComponent } from '../chat/chat-dialog/chat-dialog.component';
 import { ChartChatbotComponent } from '../pages/chart-chatbot/chart-chatbot.component';
 import { GestionChatbotComponent } from '../pages/gestion-chatbot/gestion-chatbot.component';
+import {PortalIndexPageComponent } from '../pages/portal-index-page/portal-index-page.component';
+import { PortalColminotasPageComponent } from '../pages/portal-colminotas-page/portal-colminotas-page.component';
+import { PortalContactosPageComponent } from '../pages/portal-contactos-page/portal-contactos-page.component';
+import { PortalGaleriaPageComponent } from '../pages/portal-galeria-page/portal-galeria-page.component';
+import { PortalPostulacionPageComponent } from '../pages/portal-postulacion-page/portal-postulacion-page.component';
+import { PortalArmasPageComponent } from '../pages/portal-armas-page/portal-armas-page.component';
+import { PortalColmilPageComponent } from '../pages/portal-colmil-page/portal-colmil-page.component';
 
 const APP_ROUTES: Routes = [
     {path: 'usuarios', component: MainPageComponent, children: [
@@ -67,6 +74,13 @@ const APP_ROUTES: Routes = [
     {path: 'chatbot', component: MainPageComponent, children: [
         {path: 'gestion', component: GestionChatbotComponent, canActivate: [AuthGuard]}
     ]},
+    {path: 'portal', component: PortalIndexPageComponent},
+    {path: 'colminotas', component: PortalColminotasPageComponent},
+    {path: 'contactos', component: PortalContactosPageComponent},
+    {path: 'galeria', component: PortalGaleriaPageComponent},
+    {path: 'postulacion', component: PortalPostulacionPageComponent},
+    {path: 'armas', component: PortalArmasPageComponent},
+    {path: 'colmil', component: PortalColmilPageComponent},
   {
     path: 'main', component: MainPageComponent, children: [
     {path: 'dashboard', component: DashboardPageComponent},
@@ -120,8 +134,8 @@ const APP_ROUTES: Routes = [
   {path: '404', component: PageNotFoundComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'sign-up', component: SignUpPageComponent},
-  {path: '', redirectTo: '/main/dashboard', pathMatch: 'prefix'},
-  {path: '**', redirectTo: '/main/dashboard', pathMatch: 'prefix'}
+  {path: '', redirectTo: '/portal', pathMatch: 'prefix'},
+  {path: '**', redirectTo: '/portal', pathMatch: 'prefix'}
 ];
 
 @NgModule({

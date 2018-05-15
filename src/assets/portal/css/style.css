@@ -856,8 +856,9 @@ footer a{
 }
 /*single page image*/
 .image-head-wrapper {
-    background: rgba(0, 0, 0, 0) url("../images/inner-banner.png") no-repeat scroll center top;
+    background: rgba(0, 0, 0, 0) url("../images/to.jpg") no-repeat scroll center top;
     height: 450px;
+    width: 100%;
     position: relative;
 }
 .inner-wrapper {
@@ -912,4 +913,10 @@ footer a{
 }
 #instafeed > div:nth-last-child(-n+3) {
     margin-top: 15px;
+}
+.text-center {
+    text-align: center;
+}
+.display-none{
+    display: none!important;
 }

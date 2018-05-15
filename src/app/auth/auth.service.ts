@@ -101,4 +101,20 @@ export class AuthService {
             this.usersCollection.doc(""+this.user["id"]).update(_data);
         })
     }
+
+    getPermissions(): any{
+        this.users = this.afs.collection<User>('usuarios', ref => ref.where('email', '==', this.currentUserEmail)).snapshotChanges().map(
+            changes => {
+                return changes.map(
+                    a => {
+                        const data = a.payload.doc.data() as User;
+                        data.id = a.payload.doc.id;
+                        return data;
+                    });
+            });
+        this.users.subscribe((userData) => {
+            this.user = userData[0];
+            console.log(this.user.perms);
+        })
+    }
 }

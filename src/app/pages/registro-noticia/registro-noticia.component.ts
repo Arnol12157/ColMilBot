@@ -5,7 +5,8 @@ import {Router} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../auth/auth.service';
 import { Observable } from 'rxjs/Observable';
-export interface Notice { titulo: string; descripcion: string; email_usuario: string}
+import {DatePipe} from '@angular/common';
+export interface Notice { titulo: string; descripcion: string; email_usuario: string; fecha_created: string}
 export interface Module { titulo: string; childrens: any; }
 
 @Component({
@@ -31,7 +32,9 @@ export class RegistroNoticiaComponent implements OnInit {
 
     addItem( titulo: string, descripcion: string, email_usuario: string){
     //let list: string[] = this.checkedList;
-    const newNoticias : Notice = { titulo, descripcion, email_usuario};
+        var datePipe = new DatePipe("en-ES");
+        var fecha_created = datePipe.transform(new Date(), 'dd/MM/yyyy HH:mm');
+    const newNoticias : Notice = { titulo, descripcion, email_usuario, fecha_created };
     this.noticiasCollection.add(newNoticias);
     }
 
@@ -42,6 +45,7 @@ export class RegistroNoticiaComponent implements OnInit {
 
         this.addItem(titulo, descripcion, email_usuario);
 
+        this.router.navigate(['/noticias/gestion'])
     }
 
     onCheckboxChange(option) {

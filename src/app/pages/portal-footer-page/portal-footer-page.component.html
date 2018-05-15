@@ -1,0 +1,51 @@
+<div class="toggle-chat" onclick="showHideChat()" style="padding: 5px 10px 5px 10px; position: fixed; right: 50px; bottom: 0px; z-index: 999; background: white; border-color: #2a6496; border-width: thick; border-width: 5px; border-style: outset;">
+  Chat
+</div>
+<div style="width: 300px; height: 150px; position: fixed; right: 50px; bottom: 320px; z-index: 999" class="container-chat display-none">
+  <app-chat-dialog></app-chat-dialog>
+</div>
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12 width-set-50">
+        <div class="footer-details">
+          <h4>Direccion</h4>
+          <ul class="list-unstyled footer-contact-list">
+            <li>
+              <i class="fa fa-map-marker fa-lg"></i>
+              <p>Estamos ubicado en:
+                <br>La Paz - Bolivia, Calacoto Calle 13.</p>
+            </li>
+            <li>
+              <i class="fa fa-phone fa-lg"></i>
+              <p><a href="tel:+591-2-2145828"> +591-2-2145828</a></p>
+            </li>
+            <li>
+              <i class="fa fa-envelope-o fa-lg"></i>
+              <p><a href="mailto:colegiomilitar17@hotmail.com">colegiomilitar17@hotmail.com</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 width-50 width-set-50">
+        <div class="footer-details">
+          <h4>Explorar</h4>
+          <ul class="list-unstyled footer-links">
+            <li class="active"><a>Inicio</a></li>
+            <li> <a [routerLink]="'/postulacion'">Postulacion</a></li>
+            <li> <a [routerLink]="'/armas'">Armas</a></li>
+            <li> <a [routerLink]="'/colmil'">El ColMil</a></li>
+            <li> <a [routerLink]="'/galeria'">Galeria</a></li>
+            <li> <a [routerLink]="'/colminotas'">Colminotas</a></li>
+            <li> <a [routerLink]="'/contactos'">Contactos</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      &copy; 2018 Todos los derechos reservados. <a href="#">Colegio Militar del Ejercito</a>
+    </div>
+
+  </div>
+</footer>

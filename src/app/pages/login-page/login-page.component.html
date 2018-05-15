@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-content class="text-center">
         <a href="/" class="push-bottom-md">
-          <img src="/assets/logo/logo-text-black.png">
+          <h4>ColMil Chatbot</h4>
         </a>
         <form name="loginForm" [formGroup]="loginForm" novalidate (ngSubmit)="onLoginEmail()">
           <mat-input-container fxFlexFill>
@@ -16,7 +16,7 @@
           </div>
           <button mat-raised-button color="primary" [disabled]="loginForm.invalid" class="push-top-sm">INGRESAR</button>
         </form>
-        <p>Aun no tienes cuenta? <a routerLink="/sign-up" class="primary-color">Registrate</a></p>
+        <!--<p>Aun no tienes cuenta? <a routerLink="/sign-up" class="primary-color">Registrate</a></p>-->
       </mat-card-content>
     </mat-card>
   </article>

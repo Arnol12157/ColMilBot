@@ -113,6 +113,15 @@ import { ChatModule } from './chat/chat.module';
 import { ChartChatbotComponent } from './pages/chart-chatbot/chart-chatbot.component';
 import { ChartIntentsComponent } from './pages/chart-intents/chart-intents.component';
 import { GestionChatbotComponent } from './pages/gestion-chatbot/gestion-chatbot.component';
+import { PortalIndexPageComponent } from './pages/portal-index-page/portal-index-page.component';
+import { PortalFooterPageComponent } from './pages/portal-footer-page/portal-footer-page.component';
+import { PortalHeaderPageComponent } from './pages/portal-header-page/portal-header-page.component';
+import { PortalColminotasPageComponent } from './pages/portal-colminotas-page/portal-colminotas-page.component';
+import { PortalContactosPageComponent } from './pages/portal-contactos-page/portal-contactos-page.component';
+import { PortalGaleriaPageComponent } from './pages/portal-galeria-page/portal-galeria-page.component';
+import { PortalPostulacionPageComponent } from './pages/portal-postulacion-page/portal-postulacion-page.component';
+import { PortalArmasPageComponent } from './pages/portal-armas-page/portal-armas-page.component';
+import { PortalColmilPageComponent } from './pages/portal-colmil-page/portal-colmil-page.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {};
 
@@ -149,7 +158,16 @@ export function createTranslateLoader(http: HttpClient) {
     PresenciaUsuariosPageComponent,
     ChartChatbotComponent,
     ChartIntentsComponent,
-    GestionChatbotComponent
+    GestionChatbotComponent,
+    PortalIndexPageComponent,
+    PortalFooterPageComponent,
+    PortalHeaderPageComponent,
+    PortalColminotasPageComponent,
+    PortalContactosPageComponent,
+    PortalGaleriaPageComponent,
+    PortalPostulacionPageComponent,
+    PortalArmasPageComponent,
+    PortalColmilPageComponent
   ],
   entryComponents: [
     DialogExampleComponent, CartButtonComponent

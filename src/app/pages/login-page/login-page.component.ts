@@ -63,7 +63,7 @@ export class LoginPageComponent implements OnInit {
             let email=this.loginForm.get("email").value;
             let password=this.loginForm.get("password").value;
             this.authService.loginWithEmail(email, password)
-                .then(() => this.router.navigateByUrl('/main/dashboard'))
+                .then(() => this.router.navigateByUrl('/chatbot/gestion'))
                 .catch(_error => {
                     console.log("error",_error);
                     // this.error = _error

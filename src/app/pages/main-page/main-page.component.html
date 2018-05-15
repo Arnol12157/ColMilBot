@@ -7,9 +7,9 @@
       </button>
       <div fxFlex class="text-center pad-right-xl">
         <a href="/">
-          <img *ngIf="darkTheme; else darkLogo" src="/assets/logo/logo-text-white.png">
+          <h4>ChatBotAdmin</h4>
           <ng-template #darkLogo>
-            <img src="/assets/logo/logo-text-black.png">
+            <h5>ChatBotAdmin</h5>
           </ng-template>
         </a>
       </div>
@@ -17,7 +17,7 @@
     <perfect-scrollbar class="perfect-scrollbar">
       <px-gdn-sidemenu>
         <!-- INICIO MENU PAME -->
-        <px-gdn-sideitem title="Noticias">
+        <px-gdn-sideitem *ngIf="bNoticias" title="Noticias">
           <px-gdn-sideitem title="Crear noticia" [routerLinkUrl]="'/noticias/crear'">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
@@ -25,7 +25,7 @@
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="Usuarios">
+        <px-gdn-sideitem *ngIf="bUsuarios" title="Usuarios">
           <px-gdn-sideitem title="Crear usuario" [routerLinkUrl]="'/usuarios/crear'">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
@@ -33,252 +33,249 @@
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="Interaccion">
-          <px-gdn-sideitem title="Visitas a la pagina">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Vistas de noticias">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
+        <px-gdn-sideitem *ngIf="bInteraccion" title="Interaccion">
+          <!--<px-gdn-sideitem title="Visitas a la pagina">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Vistas de noticias">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
           <px-gdn-sideitem title="Uso de usuarios" [routerLinkUrl]="'/interaccion/presencia-usuarios'">
             <mat-icon>keyboard_arrow_right</mat-icon>
           </px-gdn-sideitem>
         </px-gdn-sideitem>
-        <px-gdn-sideitem title="ChatBot" [routerLinkUrl]="'/chatbot/gestion'">
+        <px-gdn-sideitem *ngIf="bChatbot" title="ChatBot" [routerLinkUrl]="'/chatbot/gestion'">
           <mat-icon>dashboard</mat-icon>
         </px-gdn-sideitem>
-        <app-chat-dialog>
-
-        </app-chat-dialog>
         <!-- FIN MENU PAME -->
 
-        <px-gdn-sideitem title="Dashboard" [routerLinkUrl]="'dashboard'">
-          <mat-icon>dashboard</mat-icon>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Dashboard" [routerLinkUrl]="'dashboard'">-->
+          <!--<mat-icon>dashboard</mat-icon>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Options" (click)="optionsnav.toggle()">
-          <mat-icon>settings</mat-icon>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Options" (click)="optionsnav.toggle()">-->
+          <!--<mat-icon>settings</mat-icon>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Basics">
-          <mat-icon>web_asset</mat-icon>
-          <px-gdn-sideitem title="Typography" [routerLinkUrl]="'typography'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Color" [routerLinkUrl]="'color'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Icons" [routerLinkUrl]="'icons'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Basics">-->
+          <!--<mat-icon>web_asset</mat-icon>-->
+          <!--<px-gdn-sideitem title="Typography" [routerLinkUrl]="'typography'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Color" [routerLinkUrl]="'color'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Icons" [routerLinkUrl]="'icons'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Components">
-          <mat-icon>view_module</mat-icon>
-          <px-gdn-sideitem title="Buttons" [routerLinkUrl]="'buttons'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Dialog" [routerLinkUrl]="'dialog'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Tooltip" [routerLinkUrl]="'tooltip'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Progress bar" [routerLinkUrl]="'progress-bar'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Progress spinner" [routerLinkUrl]="'spinner'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Snackbar" [routerLinkUrl]="'snackbar'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Chips" [routerLinkUrl]="'chips'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Components">-->
+          <!--<mat-icon>view_module</mat-icon>-->
+          <!--<px-gdn-sideitem title="Buttons" [routerLinkUrl]="'buttons'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Dialog" [routerLinkUrl]="'dialog'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Tooltip" [routerLinkUrl]="'tooltip'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Progress bar" [routerLinkUrl]="'progress-bar'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Progress spinner" [routerLinkUrl]="'spinner'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Snackbar" [routerLinkUrl]="'snackbar'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Chips" [routerLinkUrl]="'chips'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Layout and navigation">
-          <mat-icon>view_list</mat-icon>
-          <px-gdn-sideitem title="Flex Layout" [routerLinkUrl]="'flex-layout'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Cards" [routerLinkUrl]="'cards'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="List" [routerLinkUrl]="'list'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Menu" [routerLinkUrl]="'menu'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Tabs" [routerLinkUrl]="'tabs'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Sidenav" [routerLinkUrl]="'sidenav'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Toolbar" [routerLinkUrl]="'toolbar'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Grid List" [routerLinkUrl]="'grid-list'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Layout and navigation">-->
+          <!--<mat-icon>view_list</mat-icon>-->
+          <!--<px-gdn-sideitem title="Flex Layout" [routerLinkUrl]="'flex-layout'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Cards" [routerLinkUrl]="'cards'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="List" [routerLinkUrl]="'list'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Menu" [routerLinkUrl]="'menu'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Tabs" [routerLinkUrl]="'tabs'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Sidenav" [routerLinkUrl]="'sidenav'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Toolbar" [routerLinkUrl]="'toolbar'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Grid List" [routerLinkUrl]="'grid-list'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Forms">
-          <mat-icon>format_align_left</mat-icon>
-          <px-gdn-sideitem title="Form elements" [routerLinkUrl]="'form-elements'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Form wizard" [routerLinkUrl]="'form-wizard'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Forms">-->
+          <!--<mat-icon>format_align_left</mat-icon>-->
+          <!--<px-gdn-sideitem title="Form elements" [routerLinkUrl]="'form-elements'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Form wizard" [routerLinkUrl]="'form-wizard'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Extra">
-          <mat-icon>extension</mat-icon>
-          <px-gdn-sideitem title="Tree" [routerLinkUrl]="'tree'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Editor" [routerLinkUrl]="'editor'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Table" [routerLinkUrl]="'table'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Scroll" [routerLinkUrl]="'scroll'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Drag and Drop" [routerLinkUrl]="'drag'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Datepicker" [routerLinkUrl]="'datepicker'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="File upload" [routerLinkUrl]="'fileupload'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Stepper" [routerLinkUrl]="'stepper'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Multi language" [routerLinkUrl]="'multi-language'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Extra">-->
+          <!--<mat-icon>extension</mat-icon>-->
+          <!--<px-gdn-sideitem title="Tree" [routerLinkUrl]="'tree'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Editor" [routerLinkUrl]="'editor'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Table" [routerLinkUrl]="'table'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Scroll" [routerLinkUrl]="'scroll'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Drag and Drop" [routerLinkUrl]="'drag'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Datepicker" [routerLinkUrl]="'datepicker'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="File upload" [routerLinkUrl]="'fileupload'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Stepper" [routerLinkUrl]="'stepper'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Multi language" [routerLinkUrl]="'multi-language'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Charts">
-          <mat-icon>insert_chart</mat-icon>
-          <px-gdn-sideitem title="Linechart" [routerLinkUrl]="'line-chart'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Barchart" [routerLinkUrl]="'bar-chart'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Bubblechart" [routerLinkUrl]="'bubble-chart'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Heatmap" [routerLinkUrl]="'heatmap'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Piechart" [routerLinkUrl]="'piechart'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Radar" [routerLinkUrl]="'radar'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Charts">-->
+          <!--<mat-icon>insert_chart</mat-icon>-->
+          <!--<px-gdn-sideitem title="Linechart" [routerLinkUrl]="'line-chart'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Barchart" [routerLinkUrl]="'bar-chart'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Bubblechart" [routerLinkUrl]="'bubble-chart'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Heatmap" [routerLinkUrl]="'heatmap'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Piechart" [routerLinkUrl]="'piechart'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Radar" [routerLinkUrl]="'radar'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Custom pages">
-          <mat-icon>account_box</mat-icon>
-          <px-gdn-sideitem title="Not Found Page" [routerLinkUrl]="'/404'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Login" [routerLinkUrl]="'/login'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Sign Up" [routerLinkUrl]="'/sign-up'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Chat" [routerLinkUrl]="'chat'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Testimonials" [routerLinkUrl]="'testimonials'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Portfolio" [routerLinkUrl]="'portfolio'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Custom pages">-->
+          <!--<mat-icon>account_box</mat-icon>-->
+          <!--<px-gdn-sideitem title="Not Found Page" [routerLinkUrl]="'/404'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Login" [routerLinkUrl]="'/login'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Sign Up" [routerLinkUrl]="'/sign-up'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Chat" [routerLinkUrl]="'chat'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Testimonials" [routerLinkUrl]="'testimonials'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Portfolio" [routerLinkUrl]="'portfolio'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
 
-        <px-gdn-sideitem title="E-commerce">
-          <mat-icon>shopping_cart</mat-icon>
-          <px-gdn-sideitem title="Pricing Tables" [routerLinkUrl]="'pricing-tables'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Products" [routerLinkUrl]="'products'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Product page" [routerLinkUrl]="'product'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Shopping Cart" [routerLinkUrl]="'cart'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="E-commerce">-->
+          <!--<mat-icon>shopping_cart</mat-icon>-->
+          <!--<px-gdn-sideitem title="Pricing Tables" [routerLinkUrl]="'pricing-tables'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Products" [routerLinkUrl]="'products'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Product page" [routerLinkUrl]="'product'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Shopping Cart" [routerLinkUrl]="'cart'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Maps">
-          <mat-icon>location_on</mat-icon>
-          <px-gdn-sideitem title="Google Maps" [routerLinkUrl]="'google-maps'">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Maps">-->
+          <!--<mat-icon>location_on</mat-icon>-->
+          <!--<px-gdn-sideitem title="Google Maps" [routerLinkUrl]="'google-maps'">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Multilevel">
-          <px-gdn-sideitem title="Level 1.1">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Level 1.2">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <px-gdn-sideitem title="Level 1.2.1">
-              <mat-icon>keyboard_arrow_right</mat-icon>
-            </px-gdn-sideitem>
-            <px-gdn-sideitem title="Level 1.2.2">
-              <mat-icon>keyboard_arrow_right</mat-icon>
-              <px-gdn-sideitem title="Level 1.2.2.1">
-                <mat-icon>keyboard_arrow_right</mat-icon>
-              </px-gdn-sideitem>
-              <px-gdn-sideitem title="Level 1.2.2.2">
-                <mat-icon>keyboard_arrow_right</mat-icon>
-              </px-gdn-sideitem>
-              <px-gdn-sideitem title="Level 1.2.2.3">
-                <mat-icon>keyboard_arrow_right</mat-icon>
-              </px-gdn-sideitem>
-            </px-gdn-sideitem>
-            <px-gdn-sideitem title="Level 1.2.3">
-              <mat-icon>keyboard_arrow_right</mat-icon>
-            </px-gdn-sideitem>
-          </px-gdn-sideitem>
-          <px-gdn-sideitem title="Level 1.3">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </px-gdn-sideitem>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Multilevel">-->
+          <!--<px-gdn-sideitem title="Level 1.1">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Level 1.2">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--<px-gdn-sideitem title="Level 1.2.1">-->
+              <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--</px-gdn-sideitem>-->
+            <!--<px-gdn-sideitem title="Level 1.2.2">-->
+              <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+              <!--<px-gdn-sideitem title="Level 1.2.2.1">-->
+                <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+              <!--</px-gdn-sideitem>-->
+              <!--<px-gdn-sideitem title="Level 1.2.2.2">-->
+                <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+              <!--</px-gdn-sideitem>-->
+              <!--<px-gdn-sideitem title="Level 1.2.2.3">-->
+                <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+              <!--</px-gdn-sideitem>-->
+            <!--</px-gdn-sideitem>-->
+            <!--<px-gdn-sideitem title="Level 1.2.3">-->
+              <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--</px-gdn-sideitem>-->
+          <!--</px-gdn-sideitem>-->
+          <!--<px-gdn-sideitem title="Level 1.3">-->
+            <!--<mat-icon>keyboard_arrow_right</mat-icon>-->
+          <!--</px-gdn-sideitem>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Primary">
-          <td-notification-count color="primary" [notifications]="3"></td-notification-count>
-          <mat-icon color="primary">star</mat-icon>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Primary">-->
+          <!--<td-notification-count color="primary" [notifications]="3"></td-notification-count>-->
+          <!--<mat-icon color="primary">star</mat-icon>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Accent">
-          <td-notification-count color="accent" [notifications]="100"></td-notification-count>
-          <mat-icon color="accent">star</mat-icon>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Accent">-->
+          <!--<td-notification-count color="accent" [notifications]="100"></td-notification-count>-->
+          <!--<mat-icon color="accent">star</mat-icon>-->
+        <!--</px-gdn-sideitem>-->
 
-        <px-gdn-sideitem title="Warn">
-          <td-notification-count color="warn" [notifications]="true"></td-notification-count>
-          <mat-icon color="warn">star</mat-icon>
-        </px-gdn-sideitem>
+        <!--<px-gdn-sideitem title="Warn">-->
+          <!--<td-notification-count color="warn" [notifications]="true"></td-notification-count>-->
+          <!--<mat-icon color="warn">star</mat-icon>-->
+        <!--</px-gdn-sideitem>-->
       </px-gdn-sidemenu>
     </perfect-scrollbar>
     <footer class="secondary-text-color">
@@ -317,76 +314,29 @@
         <mat-icon>menu</mat-icon>
       </button>
       <a fxHide="true" fxHide.gt-sm="false" href="/" class="logo">
-        <img src="/assets/logo/logo-text-white.png">
+
       </a>
       <span fxFlex></span>
-      <td-search-box [alwaysVisible]="false" fxHide="true" fxHide.gt-sm="false"></td-search-box>
-      <button mat-icon-button [matMenuTriggerFor]="lettersMenu">
-        <td-notification-count [notifications]="3">
-          <mat-icon>mail</mat-icon>
-        </td-notification-count>
-      </button>
-      <mat-menu #lettersMenu="matMenu">
-        <mat-nav-list>
-          <a mat-list-item *ngFor="let message of messages">
-            <img mat-list-avatar [src]="message.image">
-            <h4 matLine fxLayoutAlign="space-between">
-              <span>{{message.subject}}</span>
-              <span class="mat-caption">{{message.time}}</span>
-            </h4>
-            <p matLine>
-              <span>{{message.message}}</span>
-            </p>
-          </a>
-        </mat-nav-list>
-        <div class="text-center">
-          <button mat-button>View all</button>
-        </div>
-      </mat-menu>
-      <img src="assets/avatars/4040.png" class="cursor-pointer push-left-sm" [matMenuTriggerFor]="userMenu">
+      <img src="../../../assets/avatars/4040.png" class="cursor-pointer push-left-sm" [matMenuTriggerFor]="userMenu">
       <mat-menu #userMenu="matMenu">
-        <mat-list>
-          <mat-list-item>
-            <img mat-list-avatar src="assets/avatars/4040.png">
-            <h4 matLine> Olivia Werner </h4>
-            <p matLine>
-              <span>Admin</span>
-            </p>
-          </mat-list-item>
-          <mat-divider></mat-divider>
-        </mat-list>
+        <!--<mat-list>-->
+          <!--<mat-list-item>-->
+            <!--<img mat-list-avatar src="../../../assets/avatars/4040.png">-->
+            <!--<h4 matLine> Olivia Werner </h4>-->
+            <!--<p matLine>-->
+              <!--<span>Admin</span>-->
+            <!--</p>-->
+          <!--</mat-list-item>-->
+          <!--<mat-divider></mat-divider>-->
+        <!--</mat-list>-->
         <mat-nav-list>
+          <!--<a mat-list-item>-->
+            <!--<h4 matLine>Mi perfil</h4>-->
+          <!--</a>-->
           <a mat-list-item>
-            <h4 matLine>View Profile</h4>
-          </a>
-          <a mat-list-item>
-            <h4 matLine>Password</h4>
-          </a>
-          <a mat-list-item>
-            <h4 matLine>Sign out</h4>
+            <h4 matLine (click)="signOut()">Cerrar sesion</h4>
           </a>
         </mat-nav-list>
-      </mat-menu>
-      <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #settingsMenu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          Settings
-        </button>
-        <button mat-menu-item>
-          <mat-icon>language</mat-icon>
-          Language
-        </button>
-        <button mat-menu-item>
-          <mat-icon>notifications_off</mat-icon>
-          Notifications
-        </button>
-        <button mat-menu-item>
-          <mat-icon>share</mat-icon>
-          Share
-        </button>
       </mat-menu>
 
     </mat-toolbar>

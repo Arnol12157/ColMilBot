@@ -1,6 +1,9 @@
-<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="stretch">
+<div fxLayout="column" fxLayout.gt-sm="row" fxLayoutAlign="stretch" style="background: white; padding: 10px; border-radius: 50px; border-color: #2a6496; border-width: thick; border-width: 5px; border-style: outset;">
   <div fxFlex="1 0 auto" fxFlex.gt-sm="50">
-    <h5>ColMilBot</h5>
+    <div style="display: inline-flex">
+      <h5>ColMilBot</h5>
+      <div onclick="showHideChat()" style="right: 30px; top: 30px; position: absolute"><span><i class="fa fa-window-close" aria-hidden="true"></i></span></div>
+    </div>
     <perfect-scrollbar class="list-container">
       <ng-container *ngFor="let message of messages | async">
         <div class="message" [ngClass]="{ 'from': message.sentBy === 'bot',

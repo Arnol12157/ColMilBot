@@ -46,4 +46,7 @@ $(document).ready(function () {
     });
     userFeed.run();
 });
-
+ function showHideChat() {
+     $(".toggle-chat").toggleClass("display-none");
+     $(".container-chat").toggleClass("display-none");
+ }

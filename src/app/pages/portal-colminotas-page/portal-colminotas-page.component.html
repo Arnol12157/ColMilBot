@@ -1,0 +1,37 @@
+<div id="page">
+  <!--header--->
+  <app-portal-header-page></app-portal-header-page>
+  <section class="blog-block">
+    <div class="text-center">
+      <h3>Colminotas</h3>
+    </div>
+    <div class="container">
+      <div *ngFor="let noticia of data" class="row offspace-45">
+        <div class="view-set-block">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="event-blog-image">
+              <img alt="image" class="img-responsive" src="../../../assets/portal/images/imagen11.jpg">
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 side-in-image">
+            <div class="event-blog-details">
+              <h4><a>{{noticia.titulo}}</a></h4>
+              <h5>Creado por: <a>{{noticia.email_usuario}}</a></h5>
+              <p>{{noticia.descripcion}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!---footer--->
+  <app-portal-footer-page></app-portal-footer-page>
+
+  <!--back to top--->
+  <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+    <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+    <span></span>
+  </a>
+
+</div>

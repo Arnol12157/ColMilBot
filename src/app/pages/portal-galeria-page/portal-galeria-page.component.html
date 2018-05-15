@@ -1,0 +1,92 @@
+<style>
+  .grid {
+    background: rgba(0,0,0,0);
+  }
+  /* clear fix */
+  .grid:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  /* ---- .grid-item ---- */
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+  .grid-item {
+    float: left;
+  }
+  .grid-item img {
+    display: block;
+    max-width: 100%;
+  }
+</style>
+
+<div id="page">
+  <!--header--->
+  <app-portal-header-page></app-portal-header-page>
+  <!--end-->
+  <section class="image-head-wrapper">
+    <div class="inner-wrapper">
+      <h1>Galeria</h1>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+
+  <section class="gallery-block">
+    <div class="container">
+      <div class="row">
+        <div class="grid hover-effect">
+          <div class="grid-sizer"></div>
+          <div class="grid-item percent25 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/ingreso1.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/ingreso1.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent25 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/ciam1.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/ciam1.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent37 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/pabe1.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/pabe1.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent25 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/gin.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/gin.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent37 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/comi.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/comi.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent20 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/da.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/da.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent20 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/infat.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/infat.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+          <div class="grid-item percent20 gallery-image">
+            <a class="example-image-link img-responsive" href="../../../assets/portal/images/coli.jpg" data-lightbox="example-1"><img src="../../../assets/portal/images/coli.jpg" class="img-responsive" alt="gallery1"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---footer--->
+  <app-portal-footer-page></app-portal-footer-page>
+
+  <!--back to top--->
+  <a style="display: none;" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
+    <span><i aria-hidden="true" class="fa fa-angle-up fa-lg"></i></span>
+    <span></span>
+  </a>
+
+</div>
+<script>
+    var grid = document.querySelector('.grid');
+
+    var msnry = new Masonry(grid, {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        percentPosition: true
+    });
+
+    imagesLoaded(grid).on('progress', function () {
+        // layout Masonry after each image loads
+        msnry.layout();
+    });
+</script>
